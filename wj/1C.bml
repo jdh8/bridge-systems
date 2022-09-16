@@ -1,4 +1,4 @@
-* Polish 1C opening
+* Polish 1!c opening
 
 1C-
 1D = !(R), 0--11 HCP
@@ -30,9 +30,9 @@ hand positives.
 
 #SEAT 0
 
-** The 1D relay
+** The 1!d relay
 
-In our version of Polish Club, the 1D relay denies game-forcing values.  There
+In our version of Polish Club, the 1!d relay denies game-forcing values.  There
 are two options in this relay.
 
 - 0--7 HCP
@@ -42,39 +42,33 @@ are two options in this relay.
 1H = 3+!h, 12--20 HCP
 1S = 3+!s, 12--20 HCP
 1N = 2--4!s, 2--4!h, 2--5!d, 2--5!c, 18--20 HCP
-2C = 5+!c, 15--20 HCP
+2C = 5+!c, 0--3!s, 0--3!h, 15--20 HCP
 2D = !FG, 23+ HCP
 2H = 5+!h, 20--22 HCP
 2S = 5+!s, 20--22 HCP
 2N = 2--4!s, 2--4!h, 2--5!d, 2--5!c, 21--22 HCP
-3C = 5+!c, 18--22 HCP
-3D = 5+!d, 18--22 HCP
-
-*** Opener rebids 1M
+3C = 5+!c, 20--22 HCP
+3D = 5+!d, 20--22 HCP
 
 With the weak option, opener can only rebid a major.  Opener never rebids clubs
 even in competition.
-
-Within 12--20 HCP, opener should show their 4-card major before bidding a minor
-suit.
-
-The second response of 2D is constructive so opener can rebid 3C with
-intermediate hands.
 
 1C-1D-1H-
 1S = 4+!s, 5--7 HCP
 1N = 0--3!s, 0--3!h, 0--4!c, 5--7 HCP
 2C = 5+!c, 5--9 HCP
-2D = !NF, 5+!d, 7--11 HCP
+2D = !NF, 5+!d, 7--9 HCP
 2H = 4+!h, 5--7 HCP
+2N = 5+!d, 10--11 HCP
 3C = 5+!c, 10--11 HCP
 
 1C-1D-1S-
 1N = 0--3!s, 0--4!h, 0--4!c, 5--7 HCP
 2C = 5+!c, 5--9 HCP
-2D = !NF, 5+!d, 7--11 HCP
+2D = !NF, 5+!d, 7--9 HCP
 2H = !NF, 5+!h, 5--7 HCP
 2S = 4+!s, 5--7 HCP
+2N = 5+!d, 10--11 HCP
 3C = 5+!c, 10--11 HCP
 
 1C-1D-1H-1S-
@@ -126,3 +120,204 @@ intermediate hands.
 3D = 5+!d, 5+!s, 18--20 HCP
 3H = 5+!h, 5+!s, 18--20 HCP
 3S = 5+!s, 6+!c, 15--17 HCP
+
+The bidding structure at 1!c-1!d-1NT is similar to the 1NT opening.
+
+1C-1D-1N-
+2C = STAY, may be Garbage
+2D = TRF, 5+!h
+2H = TRF, 5+!s
+2S = !TRF, 6+!c or S/T 5+!d 5+!c
+2N = NAT INV
+3C = !TRF, 6+!d
+3D = !SPL, 0--1!d, 4!s, 4!h, 4--5!c
+3H = !SPL, 0--1!h, 4!s, 4--5!d, 4--5!c
+3S = !SPL, 0--1!s, 4!h, 4--5!d, 4--5!c
+3N = S/O
+4D = !Texas TRF, 6+!h
+4H = !Texas TRF, 6+!s
+4S = !FG, 5+!d, 5+!c
+4N = QUANT INV to 6NT
+
+1C-1D-2C-
+2D = 4+!d, 7+ HCP
+2H = 5+!h, 7+ HCP
+2S = 5+!s, 7+ HCP
+2N = INV, 2--4!s, 2--4!h, 2--5!d, 2--3!c, 7--9 HCP
+3C = INV, 3+!c, 7--9 HCP
+
+1C-1D-2D-
+2H = (R)
+2S = 5+!s, 7+ points
+2N = 5+!h, 7+ points
+3C = 6+!c, 7+ points
+3D = 6+!d, 7+ points
+3H = 7+!h, 7+ points
+3S = 7+!s, 7+ points
+
+1C-1D-2N-
+3C = STAY
+3D = TRF, 5+!h
+3H = TRF, 5+!s
+3S = !TRF, 6+!c or S/T 5+!d 5+!c
+3N = S/O
+4C = !TRF, 6+!d
+4D = !Texas TRF, 6+!h
+4H = !Texas TRF, 6+!s
+4S = !FG, 5+!d, 5+!c
+4N = QUANT INV to 6NT
+
+** Positive 1M responses
+
+1C-1H-
+1S = F, 4+!s
+1N = 2--3!s, 2--3!h, 12--14 HCP
+2C = 5+!c, 0--3!s, 0--3!h, 15--17 HCP
+2D = !FG, 3+!h, 18+ HCP, Bubrotka
+2H = 4!h, 12--14 HCP
+2S = 6+!s, 18+ HCP
+2N = 0--3!s, 0--2!h, 18+ HCP
+3C = 6+!c, 18+ HCP
+3D = 6+!d, 18+ HCP
+3H = 4+!h, 4+!c, 15--17 HCP
+3S = !SPL, 0--1!s, 4+!h, 18+ HCP
+3N = SOL 7+!c, partial stops in !s and !d
+4C = !SPL, 0--1!c, 4+!h, 18+ HCP
+4D = !SPL, 0--1!d, 4+!h, 18+ HCP
+
+1C-1S-
+1N = 2--3!s, 12--14 HCP
+2C = 5+!c, 0--3!s, 15--17 HCP
+2D = !FG, 3+!s, 18+ HCP, Bubrotka
+2H = 5+!h, 18+ HCP
+2S = 4!s, 12--14 HCP
+2N = 0--2!s, 0--4!h, 18+ HCP
+3C = 6+!c, 18+ HCP
+3D = 6+!d, 18+ HCP
+3H = 7+!h, 18+ HCP
+3S = 4+!s, 4+!c, 15--17 HCP
+3N = SOL 7+!c, partial stops in !h and !d
+4C = !SPL, 0--1!c, 4+!s, 18+ HCP
+4D = !SPL, 0--1!d, 4+!s, 18+ HCP
+4H = !SPL, 0--1!h, 4+!s, 18+ HCP
+
+1C-1H-1N-
+2C = !Roudi, INV+
+  2D = !MIN 2!h
+  2H = !MIN 3!h
+  2S = !MAX 3!h
+  2N = !MAX 2!h
+2H = 5+!h, 7--10 HCP
+2N = INV, 4!h
+3H = INV, 6+!h
+
+1C-1S-1N-
+2C = !Roudi, INV+
+  2D = !MIN 2!s
+  2H = !MIN 3!s
+  2S = !MAX 3!s
+  2N = !MAX 2!s
+2S = 5+!s, 7--10 HCP
+2N = INV, 4!s
+3S = INV, 6+!s
+
+*** XYZ over 1!c-1!h-1!s
+
+The only occurrence of XYZ in our system is over 1!c-1!h-1!s, the only
+unlimited 1X-1Y-1Z auction.
+
+1C-1H-1S-
+1N = 0--3!s, 7--10 HCP
+2C = !F, 7--11 HCP
+2D = !FG
+2H = 5+!h, 7--10 HCP
+2S = 4+!s, 7--10 points
+2N = INV, 1--3!s, 2--4!h
+3C = 5+!c, 9--10 HCP
+3D = FG, 5+!d
+3H = FG, 6+!h
+3S = FG, 4+!s
+3N = 0--3!s, 4!h, 0--5!d, 0--5!c, 12--15 HCP
+
+#SEAT 12
+
+The 2!c response contains the following types of hands
+
+- 5+!d, 7--8 HCP, planning to pass the 2!d relay
+- Invitational 4+!s support
+- Invitational 5+!h
+- Invitational unbalanced 5+ minor
+
+1C-1H-1S-2C-
+2D = !(R), 12--17 HCP
+2H = 53xx, 18+ HCP
+2S = 5!s, 18+ HCP
+2N = 4!s, 18+ HCP
+3C = 5+!c, 18+ HCP
+3D = 5+!d, 18+ HCP
+
+1C-1H-1S-2C-2D-
+P  = 5+!d, 7--8 HCP
+2H = INV, 5!h, not BAL
+2S = INV, 4+!s
+2N = INV, BAL 5!h
+3C = INV, 5+!c
+3D = INV, 5+!d
+3H = INV, 6+!h
+
+The 2!d response contains the following types of hands
+
+- Game forcing 5 hearts or unbalanced 5+ clubs, seeking a fit
+- Slam tries dependent on opener's strength
+
+1C-1H-1S-2D-
+2H = 3!h, 12--14 HCP
+2S = 5!s, 18+ HCP
+2N = 2!h, 12--14 HCP
+3C = 5+!c, 15+ HCP
+3D = 5+!d, 18+ HCP
+3H = 53xx, 18+ HCP
+3S = 4144, 18+ HCP
+3N = 42(52) or 42(43), 18+ HCP
+
+**** Turning off XYZ by a passed hand
+
+#SEAT 34
+
+XYZ is off by a passed hand because game-forcing options become impossible.
+
+1C-1H-1S-
+2C = NF, 5+!c
+2D = INV 4SF
+3C = INV, 5+!c
+3H = INV, 6+!h
+
+#SEAT 0
+
+*** Bubrotka
+
+1C-1H-2D-
+2H = ! 4!h, 7--10 HCP
+2S = ! 4!h, 11+ HCP
+2N = ! 5!h, 11+ HCP
+3C = 4!h, 5+!c, 9--11 HCP
+3D = 4!h, 5+!d, 9--11 HCP
+3H = ! 5!h, not BAL, 7--10 HCP
+3S = ! 5!h, BAL, 7--10 HCP
+3N = !SPL, 0--1!s, 6+!h, 7--10 HCP
+4C = !SPL, 0--1!c, 6+!h, 7--10 HCP
+4D = !SPL, 0--1!d, 6+!h, 7--10 HCP
+4H = 6+!h, 2+!s, 2+!d, 2+!c, 7--10 HCP
+
+1C-1S-2D-
+2H = ! 4!s, 7--10 HCP
+2S = ! 4!s, 11+ HCP
+2N = ! 5!s, 11+ HCP
+3C = 4!s, 5+!c, 9--11 HCP
+3D = 4!s, 5+!d, 9--11 HCP
+3H = ! 5!s, not BAL, 7--10 HCP
+3S = ! 5!s, BAL, 7--10 HCP
+4C = !SPL, 0--1!c, 6+!s, 7--10 HCP
+4D = !SPL, 0--1!d, 6+!s, 7--10 HCP
+4H = !SPL, 0--1!h, 6+!s, 7--10 HCP
+4S = 6+!s, 2+!h, 2+!d, 2+!c, 7--10 HCP
