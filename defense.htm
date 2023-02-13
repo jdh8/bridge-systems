@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Defensive bidding
+  </title>
+  <style type="text/css">
+   div.start {
+    display: inline-block;
+    vertical-align: top;
+    width: 60px;
+}
+    
+div.bidtable {
+    width:700px;
+    padding-bottom: 20px;
+}    
+
+div.bidtable ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+div.bidtable li ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 60px;
+}
+
+div.tree {
+    list-style-type: none;
+    padding-bottom: 20px;
+}
+
+div.tree ul {
+    list-style-type: none;
+    /* vline.png */
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAKAQMAAABPHKYJAAAAA1BMVEWIiIhYZW6zAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH1ggGExMZBky19AAAAAtJREFUCNdjYMAEAAAUAAHlhrBKAAAAAElFTkSuQmCC);
+    background-size: 2px;
+    background-repeat: repeat-y;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+
+div.tree li.node {
+    margin: 0;
+    padding: 0 12px;
+    line-height: 20px;
+    /* node.png */
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAUAQMAAACK1e4oAAAABlBMVEUAAwCIiIgd2JB2AAAAAXRSTlMAQObYZgAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9YIBhQIJYVaFGwAAAARSURBVAjXY2hgQIf/GTDFGgDSkwqATqpCHAAAAABJRU5ErkJggg==);
+    background-size: 12px;
+    background-repeat: no-repeat;
+}
+
+div.tree td.node {
+    vertical-align: top;
+    width: 60px;
+}
+
+div.tree li.last {
+    /* lastnode.png */
+    background-color: #fff;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAUAQMAAACK1e4oAAAABlBMVEUAAwCIiIgd2JB2AAAAAXRSTlMAQObYZgAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9YIBhQIIhs+gc8AAAAQSURBVAjXY2hgQIf/GbAAAKCTBYBUjWvCAAAAAElFTkSuQmCC) ;
+    background-size: 12px;
+    backrgound-repeat: no-repeat;
+}
+
+div.tree li.root {
+    background-color: #fff;
+    background-image: none;
+    backrgound-repeat: no-repeat;
+}
+
+.ccolor{color:Green}
+.dcolor{color:Orange}
+.hcolor{color:Red}
+.scolor{color:Black}
+
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;   /* Chrome, Safari */
+				color-adjust: exact !important;                 /* Firefox */
+		}
+    div.tree ul {
+        background-size: 1px;
+    }
+}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Introduction
+  </h1>
+  <p>
+   Welcome to Chen-Pang He (jdh8)'s experimental defensive bidding system!
+We use the distribution syntax and abbreviations provided by WBF.
+  </p>
+  <p>
+   http://www.worldbridge.org/wp-content/uploads/2017/04/Guidetocompletion.pdf
+  </p>
+  <p>
+   This bidding system is based on
+   <em>
+    Good, Better, Best
+   </em>
+   by Jan Eric Larsson and my
+improvisation.
+  </p>
+  <h1>
+   Over natural (1X)
+  </h1>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1Y)
+     <ul>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          Dbl
+         </td>
+         <td>
+          T/O 11+ HCP or any 17+ HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1Z
+         </td>
+         <td>
+          5+#, 10&ndash;17 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1NT
+         </td>
+         <td>
+          15&ndash;17 HCP w/ likely stop
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2X
+         </td>
+         <td>
+          5+#, 12&ndash;17 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2Z
+         </td>
+         <td>
+          5+#, 4&ndash;10 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2NT
+         </td>
+         <td>
+          !UNT, 55+ in lowest two unbid suits, 10&ndash;15 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          3X
+         </td>
+         <td>
+          7+#, 5&ndash;9 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          3Y
+         </td>
+         <td>
+          !Gambling, SOL 7+m, at most partial stop
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          3Z
+         </td>
+         <td>
+          7+#, 5&ndash;9 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          3NT
+         </td>
+         <td>
+          !Gambling, SOL 7+m w/ likely stop
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1m)
+     <ul>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2m
+         </td>
+         <td>
+          !Michaels, 5+
+          <span class="scolor">
+           &spades;
+          </span>
+          , 5+
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , 8.5&ndash;6.0 NLTC
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1
+     <span class="hcolor">
+      &hearts;
+     </span>
+     )
+     <ul>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+         <td>
+          !Michaels, 5+
+          <span class="scolor">
+           &spades;
+          </span>
+          , 5+m, 10&ndash;15 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1
+     <span class="scolor">
+      &spades;
+     </span>
+     )
+     <ul>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+         <td>
+          !Michaels, 5+
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , 5+m, 10&ndash;15 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <p>
+   Due to insufficient strength, 1NT by passed hand becomes unusual.
+  </p>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1X)
+     <ul>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1NT
+         </td>
+         <td>
+          !UNT, 55+ in lowest two unbid suits
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <h2>
+   Balancing overcall
+  </h2>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1Y)-Pass
+     <ul>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          Dbl
+         </td>
+         <td>
+          T/O 9+ HCP or any 13+ HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1Z
+         </td>
+         <td>
+          4+#, 8&ndash;12 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2X
+         </td>
+         <td>
+          5+#, 8&ndash;12 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2Z
+         </td>
+         <td>
+          6+#, 8&ndash;12 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1m)
+     <ul>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2m
+         </td>
+         <td>
+          !Michaels, 5+
+          <span class="scolor">
+           &spades;
+          </span>
+          , 5+
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , 9.0&ndash;7.5 NLTC
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1
+     <span class="hcolor">
+      &hearts;
+     </span>
+     )
+     <ul>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+         <td>
+          !Michaels, 5+
+          <span class="scolor">
+           &spades;
+          </span>
+          , 5+m, 8&ndash;12 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1
+     <span class="scolor">
+      &spades;
+     </span>
+     )
+     <ul>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+         <td>
+          !Michaels, 5+
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , 5+m, 8&ndash;12 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <h3>
+   Notrump overcalls
+  </h3>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1X)-Pass
+     <ul>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1NT
+         </td>
+         <td>
+          13&ndash;15 HCP w/ stop
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2NT
+         </td>
+         <td>
+          19&ndash;21 HCP w/ stop
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <p>
+   Like a direct overcall, 1NT by passed hand is unusual.
+  </p>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1X)-Pass
+     <ul>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1NT
+         </td>
+         <td>
+          !UNT, 55+ in lowest two unbid suits
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <h2>
+   After (1X)-1NT
+  </h2>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1X)-1NT
+     <ul>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2NT
+         </td>
+         <td>
+          NAT INV
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          3NT
+         </td>
+         <td>
+          S/O
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          4
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+         <td>
+          !Texas TRF, 6+
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          4
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+         <td>
+          !Texas TRF, 6+
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          4NT
+         </td>
+         <td>
+          QUANT INV to 6NT
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          5NT
+         </td>
+         <td>
+          QUANT INV to 7NT
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1m)-1NT
+     <ul>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="ccolor">
+           &clubs;
+          </span>
+         </td>
+         <td>
+          !STAY, may be Garbage
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+         <td>
+          !TRF, 5+
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+         <td>
+          !TRF, 5+
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+         <td>
+          !TRF, 5+om
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1
+     <span class="hcolor">
+      &hearts;
+     </span>
+     )-1NT
+     <ul>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="ccolor">
+           &clubs;
+          </span>
+         </td>
+         <td>
+          !TRF, 5+
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+         <td>
+          !STAY, INV+ 4
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+         <td>
+          !TRF, 5+
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+         <td>
+          !TRF, 6+
+          <span class="ccolor">
+           &clubs;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     (1
+     <span class="scolor">
+      &spades;
+     </span>
+     )-1NT
+     <ul>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="ccolor">
+           &clubs;
+          </span>
+         </td>
+         <td>
+          !TRF, 5+
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+         <td>
+          !TRF, 5+
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+         <td>
+          !STAY, INV+ 4
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+         <td>
+          !TRF, 6+
+          <span class="ccolor">
+           &clubs;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+ </body>
+</html>
