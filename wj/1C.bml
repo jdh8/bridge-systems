@@ -59,7 +59,7 @@ are two options in this relay.
 1C-1D-1H-1S-
 1N = 2!s, 12--14 HCP
 2C = 5+!c, 4+!h, 12--17 HCP
-2D = 4+!d, 4+!h, 18--20 HCP
+2D = 5+!d, 4+!h, 18--20 HCP
 2H = 5+!h, 18--20 HCP
 2S = 4414, 15--17 HCP
 3C = 5+!c, 4+!h, 18--20 HCP
@@ -68,7 +68,7 @@ are two options in this relay.
 
 1C-1D-1H-1N-
 2C = 5+!c, 4+!h, 12--17 HCP
-2D = 4+!d, 4+!h, 18--20 HCP
+2D = 5+!d, 4+!h, 18--20 HCP
 2H = 5+!h, 18--20 HCP
 2S = 4+!s, 4+!h, 18--20 HCP
 2N = 4+!c, 4+!h, 16--18 HCP
@@ -79,7 +79,7 @@ are two options in this relay.
 
 1C-1D-1S-1N-
 2C = 5+!c, 4+!s, 12--17 HCP
-2D = 4+!d, 4+!s, 18--20 HCP
+2D = 5+!d, 4+!s, 18--20 HCP
 2H = 4+!h, 5+!s, 18--20 HCP
 2S = 5+!s, 18--20 HCP
 2N = 4+!c, 4+!h, 16--18 HCP
@@ -89,7 +89,7 @@ are two options in this relay.
 3S = 7+!s, 18--20 HCP
 
 1C-1D-1H-2C-
-2D = 4+!d, 4+!h, 18--20 HCP
+2D = 5+!d, 4+!h, 18--20 HCP
 2H = 5+!h, 18--20 HCP
 2S = 4+!s, 4+!h, 18--20 HCP
 2N = 5+!c, 4+!h, 18--20 HCP
@@ -99,7 +99,7 @@ are two options in this relay.
 3S = 5+!s, 6+!h, 18--20 HCP
 
 1C-1D-1S-2C-
-2D = 4+!d, 4+!s, 18--20 HCP
+2D = 5+!d, 4+!s, 18--20 HCP
 2H = 4+!h, 5+!s, 18--20 HCP
 2S = 5+!s, 18--20 HCP
 2N = 5+!c, 4+!s, 18--20 HCP
@@ -223,7 +223,13 @@ alleviate the burden on 2NT.
 4H = !SPL, 0--1!h, 6+!s
 
 1C-1H-2C-
-2D = !F INV+
+2D = !INV+ 5+!h or FG (R)
+  2H = NF, 2--3!h
+  2S = !FG, 6+!c, 0--2!h
+  2N = NF NAT
+  3C = NF, 6+!c
+  3D = FG, 4+!d
+  3H = FG, 3!h
 2H = 5+!h, 7--9 HCP
 2S = !INV, 3+!c
 2N = NAT INV
@@ -231,7 +237,13 @@ alleviate the burden on 2NT.
 3D = NF, 6+!d
 
 1C-1S-2C-
-2D = !F INV+
+2D = !INV+ 5+!s or FG (R)
+  2H = !FG, 6+!c, 0--2!s
+  2S = NF, 2--3!s
+  2N = NF NAT
+  3C = NF, 6+!c
+  3D = FG, 4+!d
+  3S = FG, 3!s
 2H = INV, 4+!h, 5+!s
 2S = 5+!s, 7--9 HCP
 2N = NAT INV
@@ -423,30 +435,30 @@ mostly natural.
 
 ** Game-forcing 2m responses
 
-Like over 2/1 responses, opener jumps with extra values (15--17 HCP) to utilize
-higher steps to send information.  This avoids an awkward situation Bridge
-World calls "two temporizers and zero describers".
+Like over 2/1 responses, opener jumps with extra values to utilize higher steps
+to send information.  This avoids an awkward situation Bridge World calls "two
+temporizers and zero describers".
 
 1C-2C-
-2D = 4+!d, 15+ HCP
-2H = 4+!h, 12--14 or 18+ HCP
-2S = 4+!s, 12--14 or 18+ HCP
-2N = 2--3!s, 2--3!h, 12--14 HCP
-3C = 4+!c, 18+ HCP
-3D = 6+!d, 18+ HCP
-3H = 4+!h, 4+!c, 15--17 HCP
-3S = 4+!s, 4+!c, 15--17 HCP
-3N = 5+!c, 15--17 HCP
+2D = 4+!d
+2H = 4+!h
+2S = 4+!s
+2N = BAL, 2--3!s, 2--3!h, 12--14 or 21+ HCP
+3C = 5+!c
+3D = !SPL, 0--1!d, 4+!c, 15--17 HCP
+3H = !SPL, 0--1!h, 4+!c, 15--17 HCP
+3S = !SPL, 0--1!s, 4+!c, 15--17 HCP
+3N = BAL, 2--3!s, 2--3!h, 18--20 HCP
 
 1C-2D-
-2H = 4+!h, 12--14 or 18+ HCP
-2S = 4+!s, 12--14 or 18+ HCP
-2N = 2--3!s, 2--3!h, 12--14 HCP
-3C = 4+!c, 18+ HCP
-3D = 4+!d, 15+ HCP
-3H = 4+!h, 4+!c, 15--17 HCP
-3S = 4+!s, 4+!c, 15--17 HCP
-3N = 5+!c, 15--17 HCP
+2H = 4+!h
+2S = 4+!s
+2N = BAL, 2--3!s, 2--3!h, 12--14 or 21+ HCP
+3C = 5+!c
+3D = 4+!d
+3H = 6+!h, 18+ HCP
+3S = 6+!s, 18+ HCP
+3N = BAL, 2--3!s, 2--3!h, 18--20 HCP
 
 ** The 2!h response
 
@@ -463,63 +475,6 @@ The 2!h response shows a minimum positive with 5+ spades and 4+ hearts.
 4H = S/O, 4+!h, 18+ points
 4S = S/O, 3+!s, 18+ points
 4N = QUANT INV to 6NT
-
-** Proposed defense
-
-We believe the best defense to a forcing club is another forcing club system.
-We propose a defense similar to our Polish Club.  The defense was originally
-proposed by Gerben Dirksen at:
-
-https://bridgewinners.com/article/view/defense-against-polish-club/
-
-We have a more aggressive (1!c)-2!d and a more natural advancing structure over
-(1!c)-Dbl.
-
-(1C)-
-D  = T/O, (43)+MM or STR
-1X = 5+#, 10--17 HCP
-1N = NAT 15--17 HCP
-2C = 5+!c, 12--17 HCP
-2D = !Michaels, 5+!s, 5+!h
-2M = PRE, 5+#, 4--10 HCP
-2N = !UNT, 5+!d, 5+!c
-3C = PRE, 7+!c
-3X = PRE, 7+#
-3N = !Gambling, SOL 7+m
-
-We don't regard clubs as an adverse suit in principle.  However, we use
-(1!c)-Dbl-2!c as a cuebid since we pass or bid 2NT with a club invitation.
-
-(1C)-D-
-1D = WK 4+!d
-1M = WK 3+#
-2C = !FG
-2N = NAT INV
-3C = !FG, 4+!s, 4+!h
-4C = !Leaping, 5+!s, 5+!h
-4D = !Leaping, 4+!d, 5+M
-
-(1C)-(1D)-
-D  = T/O, (43)+MM or STR
-1M = 5+#, 10--17 HCP
-1N = NAT 15--17 HCP
-2C = 5+!c, 12--17 HCP
-2D = 5+!d, 12--17 HCP
-2M = PRE, 5+#, 4--10 HCP
-2N = !UNT, 5+!d, 5+!c
-3C = PRE, 7+!c
-3D = PRE, 7+!d
-3M = PRE, 7+#
-3N = !Gambling, SOL 7+m
-
-(1C)-(1D)-D-
-1M = WK 3+#
-2C = WK 4+!c
-2D = !FG
-2N = NAT INV
-3D = !FG, 4+!s, 4+!h
-4C = !Leaping, 4+!c, 5+M
-4D = !Leaping, 5+!s, 5+!h
 
 ** Competitive bidding
 
@@ -541,11 +496,11 @@ R  = BAL 3+!c, 10+ HCP
 1C-(1D)-
 D  = !TRF, 4+!h, 7+ HCP
 1H = !TRF, 4+!s, 7+ HCP
-1S = !TRF to 1NT, 7+ HCP
+1S = !TRF, 5+!c, 7+ HCP
 1N = 7--10 HCP, likely stop in !d
-2C = !NF, 5+!c, 7--11 HCP
+2C = F1, 5+!c, 10+ HCP
 2D = INV+, ask for !d stopper
-2M = PRE, 6+#, 4--6 HCP
+2M = PRE, 6+#, 4--9 HCP
 2N = INV, 10--11 HCP, likely stop in !d
 3C = INV, 6+!c, 9--11 HCP
 3M = INV, 6+#, 9--11 HCP
@@ -554,10 +509,10 @@ D  = !TRF, 4+!h, 7+ HCP
 D  = !TRF, 4+!s, 7+ HCP
 1S = !TRF to 1NT, 7+ HCP
 1N = 7--10 HCP, likely stop in !h
-2C = !NF, 5+!c, 7--11 HCP
-2D = !NF, 5+!d, 7--11 HCP
+2C = F1, 5+!c, 10+ HCP
+2D = F1, 5+!d, 10+ HCP
 2H = INV+, ask for !h stopper
-2S = PRE, 6+!s, 4--6 HCP
+2S = PRE, 6+!s, 4--9 HCP
 2N = INV, 10--11 HCP, likely stop in !h
 3C = INV, 6+!c, 9--11 HCP
 3D = INV, 6+!d, 9--11 HCP
@@ -566,9 +521,9 @@ D  = !TRF, 4+!s, 7+ HCP
 1C-(1S)-
 D  = NEG, 4+!h, 7+ HCP
 1N = 7--10 HCP, likely stop in !s
-2C = !NF, 5+!c, 7--11 HCP
-2D = !NF, 5+!d, 7--11 HCP
-2H = !NF, 5+!h, 7--11 HCP
+2C = F1, 5+!c, 10+ HCP
+2D = F1, 5+!d, 10+ HCP
+2H = F1, 5+!h, 10+ HCP
 2S = INV+, ask for !s stopper
 2N = INV, 10--11 HCP, likely stop in !s
 3C = INV, 6+!c, 9--11 HCP
@@ -587,39 +542,61 @@ D  = PEN, 10+ HCP
 2N = !UNT, 5+!d, 5+!c
 3C = 6+!c
 
-We play Rubinsohl over 1!c-(2!c) and 2-level jump overcalls.  This treatment
-makes invitational hands easier to bid.
+We play Transfer Lebensohl over 2!d!h!s overcalls.
 
-1C-(2C)-
-D  = !OPT, 2--4!s, 2--4!h, 2--4!d, 2--4!c, 10--11 HCP
-2D = !NF, 5+!d, 7--11 HCP
-2H = !NF, 5+!h, 7--11 HCP
-2S = !NF, 5+!s, 7--11 HCP
-2N = !FG STAY
-3C = !TRF INV+, 5+!d
-3D = !TRF INV+, 5+!h
-3H = !TRF INV+, 5+!s
-3S = !FG
-3N = To play, likely stop in !c
+1C-(2D)-
+D  = !OPT, BAL INV
+2M = To play, 5+#
+2N = !TRF Lebensohl
+  3C = !NF (R)
+    3D = !FG, 5+!c, at most partial stop in !d
+    3H = !FG, 5+!h, likely stop in !d
+    3S = !FG, 5+!s, likely stop in !d
+    3N = !FG, 5+!c, likely stop in !d
+  3D = !NF, 5+!c
+  3M = FG, 5+#
+  3N = To play, 18+ HCP
+3C = !FG STAY
+3D = !TRF, INV+, 5+!h
+3H = !TRF, INV+, 5+!s
+3S = !FG, usually short !d
+3N = S/O, likely stop in !d
 
 1C-(2H)-
-D  = !OPT, 2--4!s, 2--4!h, 2--4!d, 2--4!c, 10--11 HCP
-2S = !NF, 5+!s, 7--11 HCP
-2N = !TRF INV+, 5+!c
-3C = !TRF INV+, 5+!d
+D  = !OPT, BAL INV
+2S = To play, 5+!s
+2N = !TRF Lebensohl
+  3C = !NF (R)
+    3D = To play, 6+!d
+    3H = !FG, 5+!c, at most partial stop in !h
+    3S = !FG, 5+!s, likely stop in !h
+    3N = !FG, 5+!c, likely stop in !h
+  3D = !NF, 5+!c
+  3H = !FG, 5+!c
+  3S = FG, 5+!s
+  3N = To play, 18+ HCP
+3C = !TRF, 5+!d
 3D = !FG STAY, 4+!s
-3H = !TRF INV+, 5+!s
-3S = !FG
-3N = To play, likely stop in !h
+3H = !TRF, INV+, 5+!s
+3S = !FG, usually short !h
+3N = S/O, likely stop in !h
 
 1C-(2S)-
-D  = !OPT, 2--4!s, 2--4!h, 2--4!d, 2--4!c, 10--11 HCP
-2N = !TRF INV+, 5+!c
-3C = !TRF INV+, 5+!d
-3D = !TRF INV+, 5+!h
+D  = !OPT, BAL INV
+2N = !TRF Lebensohl
+  3C = !NF (R)
+    3DH = To play, 6+#
+    3S = !FG, 5+!c, at most partial stop in !s
+    3N = !FG, 5+!c, likely stop in !s
+  3D = !NF, 5+!c
+  3H = FG, 5+!h
+  3S = !FG, 5+!c
+  3N = To play, 18+ HCP
+3C = !TRF, INV+, 5+!d
+3D = !TRF, INV+, 5+!h
 3H = !FG STAY, 4+!h
-3S = !FG
-3N = To play, likely stop in !s
+3S = !FG, usually short !s
+3N = S/O, likely stop in !s
 
 We have this special unusual vs. unusual structure like 1NT-(2NT) because we
 have not yet bid a suit.
@@ -630,35 +607,6 @@ D  = INV+, 2--4!s, 2--4!h, 2+!d, 2+!c, 10+ HCP
 3D = INV+, 5+!s, 10+ points
 3H = S/O, 5+!h, 7--9 HCP
 3S = S/O, 5+!s, 7--9 HCP
-
-*** Against 1!c-(2!d)
-
-The 1!c-(2!d) we suggest, showing both majors, is harder to defend.  Our steps
-for major suits are virtually wasted.
-
-1C-(2D)-
-D  = !OPT, 2--4!s, 2--4!h, 2--4!d, 2--4!c, 10--11 HCP
-2H = INV+, likely stop in !h
-2S = INV+, likely stop in !s
-2N = !TRF INV, 5+!c, 9--11 HCP
-3C = !TRF INV, 5+!d, 9--11 HCP
-3D = !TRF FG, 5+!c
-3H = !TRF FG, 5+!d
-3S = !FG
-3N = To play, partial stop in each major
-
-We can easily defend a natural 1!c-(2!d) with plain Rubinsohl.
-
-1C-(2D)-
-D  = !OPT, 2--4!s, 2--4!h, 2--4!d, 2--4!c, 10--11 HCP
-2H = !NF, 5+!h, 7--11 HCP
-2S = !NF, 5+!s, 7--11 HCP
-2N = !TRF INV+, 5+!c
-3C = !FG STAY
-3D = !TRF INV+, 5+!h
-3H = !TRF INV+, 5+!s
-3S = !FG
-3N = To play, likely stop in !d
 
 *** Over Transfer Walsh
 
