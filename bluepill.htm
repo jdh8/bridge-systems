@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Bluepill Club
+  </title>
+  <style type="text/css">
+   div.start {
+    display: inline-block;
+    vertical-align: top;
+    width: 60px;
+}
+    
+div.bidtable {
+    width:700px;
+    padding-bottom: 20px;
+}    
+
+div.bidtable ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+div.bidtable li ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 60px;
+}
+
+div.tree {
+    list-style-type: none;
+    padding-bottom: 20px;
+}
+
+div.tree ul {
+    list-style-type: none;
+    /* vline.png */
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAKAQMAAABPHKYJAAAAA1BMVEWIiIhYZW6zAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH1ggGExMZBky19AAAAAtJREFUCNdjYMAEAAAUAAHlhrBKAAAAAElFTkSuQmCC);
+    background-size: 2px;
+    background-repeat: repeat-y;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+
+div.tree li.node {
+    margin: 0;
+    padding: 0 12px;
+    line-height: 20px;
+    /* node.png */
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAUAQMAAACK1e4oAAAABlBMVEUAAwCIiIgd2JB2AAAAAXRSTlMAQObYZgAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9YIBhQIJYVaFGwAAAARSURBVAjXY2hgQIf/GTDFGgDSkwqATqpCHAAAAABJRU5ErkJggg==);
+    background-size: 12px;
+    background-repeat: no-repeat;
+}
+
+div.tree td.node {
+    vertical-align: top;
+    width: 60px;
+}
+
+div.tree li.last {
+    /* lastnode.png */
+    background-color: #fff;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAUAQMAAACK1e4oAAAABlBMVEUAAwCIiIgd2JB2AAAAAXRSTlMAQObYZgAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9YIBhQIIhs+gc8AAAAQSURBVAjXY2hgQIf/GbAAAKCTBYBUjWvCAAAAAElFTkSuQmCC) ;
+    background-size: 12px;
+    backrgound-repeat: no-repeat;
+}
+
+div.tree li.root {
+    background-color: #fff;
+    background-image: none;
+    backrgound-repeat: no-repeat;
+}
+
+.ccolor{color:Green}
+.dcolor{color:Orange}
+.hcolor{color:Red}
+.scolor{color:Black}
+
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;   /* Chrome, Safari */
+				color-adjust: exact !important;                 /* Firefox */
+		}
+    div.tree ul {
+        background-size: 1px;
+    }
+}
+  </style>
+ </head>
+ <body>
+  <h1>
+   Introduction
+  </h1>
+  <p>
+   Welcome to Bluepill Club!  This bidding system is largely based on Cottontail
+Club in
+   <em>
+    Good, Better, Best
+   </em>
+   by Jan Eric Larsson, which in turn descends from
+Blue Club.  Changes are made with my improvisation.
+  </p>
+  <p>
+   We use the distribution syntax and abbreviations provided by WBF.
+  </p>
+  <p>
+   http://www.worldbridge.org/wp-content/uploads/2017/04/Guidetocompletion.pdf
+  </p>
+  <p>
+   The BBO ACBL convention card of this system is at
+  </p>
+  <p>
+   https://webutil.bridgebase.com/v2/acblcc/acblCC.html?x=656469743d6e266b65793d4143424c2532464e2532466a646838253246313636313936363138335f333735302532463136363139363631383326706172746e65723d266d6f62696c653d79
+  </p>
+  <p>
+   Notable conventions we use:
+  </p>
+  <ul>
+   <li>
+    Kickback RKCB 1430
+   </li>
+  </ul>
+  <h2>
+   Hand evaluation
+  </h2>
+  <ul>
+   <li>
+    <strong>
+     High card points
+    </strong>
+    : the well-known Milton Work's 4321 count
+   </li>
+   <li>
+    <strong>
+     Total points
+    </strong>
+    : HCP + distribution points (void = 3, singleton = 2, doubleton = 1, subtract 1 for each short suit with HCP)
+   </li>
+   <li>
+    <strong>
+     Fifths
+    </strong>
+    : 4.0&ndash;2.8&ndash;1.8&ndash;1.0&ndash;0.4, adjusted HCP for notrump contracts, especially 3NT
+   </li>
+   <li>
+    <strong>
+     BUM-RAP
+    </strong>
+    : 4.5&ndash;3&ndash;1.5&ndash;0.75&ndash;0.25, adjusted HCP for suit contracts
+   </li>
+   <li>
+    <strong>
+     NLTC
+    </strong>
+    : Count 1.5&ndash;1.0&ndash;0.5 losers for each missing AKQ
+   </li>
+  </ul>
+  <p>
+   NLTC is a good single hand evaluator but not very additive.  It suits
+preemptive initial actions but not for showing supports.  I have a blog article
+on that topic.
+  </p>
+  <p>
+   https://jdh8.org/nltc-a-good-single-hand-evaluator/
+  </p>
+  <h3>
+   Stopper
+  </h3>
+  <p>
+   We evaluate stopper quality as GIB does.
+  </p>
+  <ul>
+   <li>
+    <strong>
+     Partial stop
+    </strong>
+    : length + HCP = 4
+   </li>
+   <li>
+    <strong>
+     Likely stop
+    </strong>
+    : length + HCP = 5
+   </li>
+   <li>
+    <strong>
+     Stop
+    </strong>
+    : A, QJx, or length + HCP at least 7
+   </li>
+   <li>
+    <strong>
+     Two stops
+    </strong>
+    : length + HCP at least 8
+   </li>
+  </ul>
+  <h3>
+   References
+  </h3>
+  <ul>
+   <li>
+    Thomas Andrews.  [Thomas's Bridge Fantasia](https://bridge.thomasoandrews.com/valuations/)
+   </li>
+   <li>
+    Bridge Base.  [GIB Bid Descriptions](https://www.bridgebase.com/doc/gib_descriptions.php)
+   </li>
+  </ul>
+  <h1>
+   Opening bids
+  </h1>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     &empty;
+     <ul>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1
+          <span class="ccolor">
+           &clubs;
+          </span>
+         </td>
+         <td>
+          !STR F, 17+ HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+         <td>
+          4+
+          <span class="dcolor">
+           &diams;
+          </span>
+          or 3334, 12&ndash;16 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+         <td>
+          4+
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , 12&ndash;16 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+         <td>
+          4+
+          <span class="scolor">
+           &spades;
+          </span>
+          , 12&ndash;16 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1NT
+         </td>
+         <td>
+          2&ndash;4
+          <span class="scolor">
+           &spades;
+          </span>
+          , 2&ndash;4
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , 2&ndash;5
+          <span class="dcolor">
+           &diams;
+          </span>
+          , 2&ndash;5
+          <span class="ccolor">
+           &clubs;
+          </span>
+          , 15&ndash;17 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="ccolor">
+           &clubs;
+          </span>
+         </td>
+         <td>
+          !NAT, 5+
+          <span class="ccolor">
+           &clubs;
+          </span>
+          , 12&ndash;16 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+         <td>
+          !PRE, 6+M, 4&ndash;10 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2M
+         </td>
+         <td>
+          PRE, 5+#, 4&ndash;10 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2NT
+         </td>
+         <td>
+          !UNT, 5+
+          <span class="dcolor">
+           &diams;
+          </span>
+          , 5+
+          <span class="ccolor">
+           &clubs;
+          </span>
+          , 4&ndash;10 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          3X
+         </td>
+         <td>
+          PRE, 7+#, 4&ndash;10 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          3NT
+         </td>
+         <td>
+          !Gambling, SOL 7+m, 0&ndash;1 (partial) stop outside
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          4
+          <span class="ccolor">
+           &clubs;
+          </span>
+         </td>
+         <td>
+          !Namyats, S-SOL 7+
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , 4.5&ndash;5.5 NLTC
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          4
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+         <td>
+          !Namyats, S-SOL 7+
+          <span class="scolor">
+           &spades;
+          </span>
+          , 4.5&ndash;5.5 NLTC
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          4M
+         </td>
+         <td>
+          PRE, good 7+#
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          4NT
+         </td>
+         <td>
+          !UNT, 6+
+          <span class="dcolor">
+           &diams;
+          </span>
+          , 6+
+          <span class="ccolor">
+           &clubs;
+          </span>
+          , 11&ndash;15 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <h2>
+   Choice of suit openings
+  </h2>
+  <p>
+   Contrary to popular belief, a modern Blue Club is pretty natural.
+  </p>
+  <ul>
+   <li>
+    Bid the longest suit
+   </li>
+   <li>
+    Bid the higher-ranking suit but choose 1
+    <span class="hcolor">
+     &hearts;
+    </span>
+    for 44 in majors
+   </li>
+  </ul>
+  <h3>
+   Canap&eacute;
+  </h3>
+  <p>
+   Sometimes we open the secondary suit on purpose.
+  </p>
+  <p>
+   We try to skip minimum 5-card clubs.  For (4xx)5 and 12&ndash;14 HCP, open the
+4-carder instead.
+  </p>
+  <p>
+   We also canap&eacute; for strong two suiters, planning to reverse in the primary suit
+later.
+  </p>
+  <ul>
+   <li>
+    15&ndash;16 HCP
+   </li>
+   <li>
+    At least (54) in two of
+    <span class="scolor">
+     &spades;
+    </span>
+    <span class="hcolor">
+     &hearts;
+    </span>
+    <span class="dcolor">
+     &diams;
+    </span>
+   </li>
+  </ul>
+  <h2>
+   The notrump ladder
+  </h2>
+  <ul>
+   <li>
+    <strong>
+     12&ndash;14
+    </strong>
+    : 1
+    <span class="dcolor">
+     &diams;
+    </span>
+    <span class="hcolor">
+     &hearts;
+    </span>
+    <span class="scolor">
+     &spades;
+    </span>
+    or 2
+    <span class="ccolor">
+     &clubs;
+    </span>
+   </li>
+   <li>
+    <strong>
+     15&ndash;17
+    </strong>
+    : 1NT
+   </li>
+   <li>
+    <strong>
+     18&ndash;20
+    </strong>
+    : 1
+    <span class="ccolor">
+     &clubs;
+    </span>
+    -1
+    <span class="dcolor">
+     &diams;
+    </span>
+    -1NT
+   </li>
+   <li>
+    <strong>
+     21&ndash;23
+    </strong>
+    : 1
+    <span class="ccolor">
+     &clubs;
+    </span>
+    -1
+    <span class="dcolor">
+     &diams;
+    </span>
+    -2NT
+   </li>
+   <li>
+    <strong>
+     24&ndash;27
+    </strong>
+    : 1
+    <span class="ccolor">
+     &clubs;
+    </span>
+    -1
+    <span class="dcolor">
+     &diams;
+    </span>
+    -3NT
+   </li>
+   <li>
+    <strong>
+     28&ndash;30
+    </strong>
+    : 1
+    <span class="ccolor">
+     &clubs;
+    </span>
+    -1
+    <span class="dcolor">
+     &diams;
+    </span>
+    -4NT
+   </li>
+  </ul>
+  <h1>
+   Strong 1
+   <span class="ccolor">
+    &clubs;
+   </span>
+   opening
+  </h1>
+  <p>
+   We follow the philosophy of Conttontail Club.
+  </p>
+  <ul>
+   <li>
+    Opener bids naturally.
+   </li>
+   <li>
+    Responder's (
+    <span class="hcolor">
+     &hearts;
+    </span>
+    ,
+    <span class="scolor">
+     &spades;
+    </span>
+    , NT) transfer to (
+    <span class="scolor">
+     &spades;
+    </span>
+    , NT,
+    <span class="hcolor">
+     &hearts;
+    </span>
+    ).
+   </li>
+   <li>
+    Responder's minors are natural by default.
+   </li>
+   <li>
+    When opener has bid a major, the other major and notrump transfer to each
+  other.
+   </li>
+  </ul>
+  <p>
+   The above are principles.  There are a few exceptions.  The main idea is to let
+the strong hand declare.
+  </p>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     1
+     <span class="ccolor">
+      &clubs;
+     </span>
+     <ul>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+         <td>
+          !NEG, 0&ndash;7 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+         <td>
+          !FG TRF, 5+
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+         <td>
+          !FG TRF, 1&ndash;4
+          <span class="scolor">
+           &spades;
+          </span>
+          , 1&ndash;4
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , 1&ndash;5
+          <span class="dcolor">
+           &diams;
+          </span>
+          , 1&ndash;5
+          <span class="ccolor">
+           &clubs;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1NT
+         </td>
+         <td>
+          !FG TRF, 5+
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="ccolor">
+           &clubs;
+          </span>
+         </td>
+         <td>
+          !FG, 5+
+          <span class="ccolor">
+           &clubs;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+         <td>
+          !FG, 5+
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+  <h2>
+   Negative 1
+   <span class="dcolor">
+    &diams;
+   </span>
+   response
+  </h2>
+  <div class="tree">
+   <ul>
+    <li class="root">
+     1
+     <span class="ccolor">
+      &clubs;
+     </span>
+     -1
+     <span class="dcolor">
+      &diams;
+     </span>
+     <ul>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+         <td>
+          4+
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , 17&ndash;20 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+         <td>
+          4+
+          <span class="scolor">
+           &spades;
+          </span>
+          , 17&ndash;20 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          1NT
+         </td>
+         <td>
+          2&ndash;4
+          <span class="scolor">
+           &spades;
+          </span>
+          , 2&ndash;4
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , 2&ndash;5
+          <span class="dcolor">
+           &diams;
+          </span>
+          , 2&ndash;5
+          <span class="ccolor">
+           &clubs;
+          </span>
+          , 18&ndash;20 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="ccolor">
+           &clubs;
+          </span>
+         </td>
+         <td>
+          5+
+          <span class="ccolor">
+           &clubs;
+          </span>
+          , 17&ndash;20 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+         <td>
+          5+
+          <span class="dcolor">
+           &diams;
+          </span>
+          , 17&ndash;20 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+         <td>
+          F1, 5+
+          <span class="hcolor">
+           &hearts;
+          </span>
+          21+ HCP or FG 4
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+         <td>
+          F1, 5+
+          <span class="scolor">
+           &spades;
+          </span>
+          21+ HCP or FG 4
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          2NT
+         </td>
+         <td>
+          1&ndash;4
+          <span class="scolor">
+           &spades;
+          </span>
+          , 1&ndash;4
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , 1&ndash;5
+          <span class="dcolor">
+           &diams;
+          </span>
+          , 1&ndash;5
+          <span class="ccolor">
+           &clubs;
+          </span>
+          , 21&ndash;23 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          3
+          <span class="ccolor">
+           &clubs;
+          </span>
+         </td>
+         <td>
+          5+
+          <span class="ccolor">
+           &clubs;
+          </span>
+          , 21&ndash;23 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          3
+          <span class="dcolor">
+           &diams;
+          </span>
+         </td>
+         <td>
+          5+
+          <span class="dcolor">
+           &diams;
+          </span>
+          , 21&ndash;23 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          3
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+         <td>
+          !FG FRAG, 0&ndash;1
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          3
+          <span class="scolor">
+           &spades;
+          </span>
+         </td>
+         <td>
+          !FG FRAG, 0&ndash;1
+          <span class="hcolor">
+           &hearts;
+          </span>
+         </td>
+        </tr>
+       </table>
+      </li>
+      <li class="last node">
+       <table>
+        <tr>
+         <td class="node" rowspan="1">
+          3NT
+         </td>
+         <td>
+          2&ndash;3
+          <span class="scolor">
+           &spades;
+          </span>
+          , 2&ndash;3
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , 24&ndash;27 HCP
+         </td>
+        </tr>
+       </table>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </div>
+ </body>
+</html>
