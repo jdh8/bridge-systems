@@ -14,9 +14,9 @@ We use the distribution syntax and abbreviations provided by WBF.
 
 http://www.worldbridge.org/wp-content/uploads/2017/04/Guidetocompletion.pdf
 
-The BBO ACBL convention card of this system is at
+The ACBL convention card of this system is at
 
-https://webutil.bridgebase.com/v2/acblcc/acblCC.html?x=656469743d6e266b65793d4143424c2532464e2532466a646838253246313636313936363138335f333735302532463136363139363631383326706172746e65723d266d6f62696c653d79
+https://bridgewinners.com/convention-card/print/bluepill-cottontail-club/99274
 
 Notable conventions we use:
 
@@ -26,12 +26,12 @@ Notable conventions we use:
 
 * Opening bids
 
-1C = !STR F, 17+ HCP
-1D = 4+!d or 3334, 12--16 HCP
-1H = 4+!h, 12--16 HCP
-1S = 4+!s, 12--16 HCP
-1N = 2--4!s, 2--4!h, 2--5!d, 2--5!c, 15--17 HCP
-2C = !NAT, 5+!c, 12--16 HCP
+1C = !STR F, 16+ HCP
+1D = 4+!d or 3334, 11--15 HCP
+1H = 4+!h, 11--15 HCP
+1S = 4+!s, 11--15 HCP
+1N = 2--4!s, 2--4!h, 2--5!d, 2--5!c, 14--16 HCP
+2C = !NAT, 5+!c, 11--15 HCP
 2D = !PRE, 6+M, 4--10 HCP
 2M = PRE, 5+#, 4--10 HCP
 2N = !UNT, 5+!d, 5+!c, 4--10 HCP
@@ -51,25 +51,19 @@ Contrary to popular belief, a modern Blue Club is pretty natural.
 
 *** Canapé
 
-Sometimes we open the secondary suit on purpose.
+Sometimes we open the secondary suit on purpose.  We canapé for maximum
+non-club two suiters, planning to reverse in the primary suit later.
 
-We try to skip minimum 5-card clubs.  For (4xx)5 and 12--14 HCP, open the
-4-carder instead.
-
-We also canapé for strong two suiters, planning to reverse in the primary suit
-later.
-
-- 15--16 HCP
+- 14--15 HCP
 - At least (54) in two of !s!h!d
 
 ** The notrump ladder
 
-- *12--14*: 1!d!h!s or 2!c
-- *15--17*: 1NT
-- *18--20*: 1!c-1!d-1NT
-- *21--23*: 1!c-1!d-2NT
-- *24--27*: 1!c-1!d-3NT
-- *28--30*: 1!c-1!d-4NT
+- *11--13*: 1!d!h!s or 2!c
+- *14--16*: 1NT
+- *17--19*: 1!c-1!d-1NT
+- *20--21*: 1!c-1!d-2NT
+- *22--23*: 1!c-1!d-1!h-1!s-2NT
 
 #INCLUDE bluepill/1C.bml
 #INCLUDE common/Multi.bml
