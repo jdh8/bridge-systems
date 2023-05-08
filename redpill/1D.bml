@@ -43,6 +43,42 @@
 3S = INV, 4+!s
 3N = SOL 7+!d, partial stops in !h and !c
 
+*** XYZ over 1!d-1!h-1!s
+
+1D-1H-1S-
+1N = 0--3!s, 7--10 HCP
+2C = !NF XYZ (R), 7--11 HCP
+2D = !FG XYZ (R)
+2H = INV, 5!h, 10--11 HCP
+2S = INV, 4+!s
+2N = !TRF, 6+!c, 7--9 HCP
+3C = INV, 5+!c, 9--11 HCP
+3D = INV, 4+!d, 9--11 HCP
+3H = INV, 6+!h
+3S = FG, 4+!s
+3N = 0--3!s, 4!h, 0--5!d, 0--5!c, 12--15 HCP
+
+The 2!c response contains the following types of hands
+
+- Minimum 3+!d, planning to pass the 2!d relay
+- Minimum 5+!h, planning to rebid 2!h
+- Minimum 4+!s support, planning to rebid 2!s
+- Balanced invitation, planning to rebid 2NT
+
+1D-1H-1S-2C-
+2D = !NF (R), 12--16 HCP
+2H = INV, 3!h, 15--17 HCP
+2S = ???
+2N = INV, 4!s, 15--17 HCP
+3C = INV, 5+!c, 15--17 HCP
+3D = INV, 6+!d, 15--17 HCP
+
+1D-1H-1S-2C-2D-
+P  = MIN, 3+!d, 7--10 HCP
+2H = MIN, 5+!h, 7--10 HCP
+2S = MIN, 4+!s
+2N = INV, 1--3!s, 4!h, 10--11 HCP
+
 *** Wolff signoff
 
 Wolff signoff is a conventional 3!c over 2NT rebid.  Such 3!c puppets to 3!d,
