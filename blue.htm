@@ -2090,7 +2090,7 @@ chance to stop at 1NT.
           1NT
          </td>
          <td>
-          NF, 8&ndash;12 HCP
+          NF, 8&ndash;11 HCP
          </td>
         </tr>
        </table>
@@ -2356,6 +2356,14 @@ chance to stop at 1NT.
   <p>
    https://hackmd.io/@TpKotoba/refx
   </p>
+  <p>
+   When there are 5 hearts in 1
+   <span class="scolor">
+    &spades;
+   </span>
+   -1NT, it must be an invitation without a spade
+fit.
+  </p>
   <div class="tree">
    <ul>
     <li class="root">
@@ -2371,7 +2379,15 @@ chance to stop at 1NT.
           1NT
          </td>
          <td>
-          NF, 8&ndash;12 HCP
+          NF, 0&ndash;3
+          <span class="scolor">
+           &spades;
+          </span>
+          , 0&ndash;5
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , 8&ndash;11 HCP
          </td>
         </tr>
        </table>
@@ -2386,11 +2402,15 @@ chance to stop at 1NT.
           </span>
          </td>
          <td>
-          !CONST 5+
+          ! 5+
           <span class="hcolor">
            &hearts;
           </span>
-          or FG 4+
+          8+ HCP or FG 4+
+          <span class="hcolor">
+           &hearts;
+          </span>
+          , but not INV 5
           <span class="hcolor">
            &hearts;
           </span>
@@ -2514,9 +2534,13 @@ chance to stop at 1NT.
           </span>
          </td>
          <td>
-          !INV, 6+
+          !INV, 5+
           <span class="hcolor">
            &hearts;
+          </span>
+          , 4+
+          <span class="scolor">
+           &spades;
           </span>
          </td>
         </tr>
