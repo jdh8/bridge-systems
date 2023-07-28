@@ -11,6 +11,11 @@ bidding system, where the 1!c opening is forcing but not necessarily strong.
 This bidding system is largely based on /Polish Club 2020: Expert./  Changes
 are made with /Good, Better, Best/ and my improvisation.
 
+Bugcat Capoo is a cartoon character created by a Taiwanese artist Yara.  We
+name this bidding system after this blue cat with six legs to reflect that
+WBF relabelled Polish Club as a blue sticker in 2023.  This name also honors
+Taiwanese origin of this variant.
+
 We use the distribution syntax and abbreviations provided by WBF.
 
 http://www.worldbridge.org/wp-content/uploads/2017/04/Guidetocompletion.pdf
@@ -34,7 +39,7 @@ https://bridgewinners.com/convention-card/print/capoo-polish-club/98013
 - The 2M preempts contain balanced hands.  This treatment is proven useful in
   /Good, Better, Best./
 - We modified continuations after the 2X preempts.
-- Namyats replaces natural 4m.
+- BTU Namyats replace natural 4m.
 
 *** Slam try
 
@@ -71,10 +76,10 @@ https://bridgewinners.com/convention-card/print/capoo-polish-club/98013
 2M = PRE, 5#, 4--10 HCP
 2N = !UNT, 5+!d, 5+!c, 4--10 HCP
 3X = PRE, 7+#, 4--10 HCP
-3N = !Gambling, SOL 7+m, 0--1 outside CTRL
-4C = !Namyats, S-SOL 7+!h, 4.5--5.5 NLTC
-4D = !Namyats, S-SOL 7+!s, 4.5--5.5 NLTC
-4M = PRE, good 7+#
+3N = !Gambling, SOL 7+m, 0--1 outside A/K
+4C = !PRE, S-SOL 8+M, 0--1 outside A/K
+4D = !PRE, SOL 8+M, no outside A/K
+4M = PRE, 8+#
 4N = !UNT, 6+!d, 6+!c, 11--15 HCP
 
 ** The notrump ladder
@@ -92,3 +97,4 @@ https://bridgewinners.com/convention-card/print/capoo-polish-club/98013
 #INCLUDE wj/2C.bml
 #INCLUDE common/Multi.bml
 #INCLUDE common/UNT.bml
+#INCLUDE common/BTU-4X.bml
