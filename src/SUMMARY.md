@@ -10,15 +10,14 @@
 	- [Positive 1M](wj/1C/1M.md)
 	- [Positive 1NT, 2♠, 2NT](wj/1C/1NT.md)
 	- [Game-forcing 2♣♦](wj/1C/2m.md)
+	- [Flannery 2♥](wj/1C/2H.md)
+- [Natural 1♦](wj/1D.md)
 
 # Blueberry Cottontail Club
 
-- [Overview]()
-
 # Common conventions
 
-- [BTU strong 1NT]()
-- [Multi 2♦]()
+- [Multi 2♦](2D-Multi.md)
 - [Muiderberg 2M]()
 - [Unusual 2NT opening]()
 - [BTU 4-level preempts]()
