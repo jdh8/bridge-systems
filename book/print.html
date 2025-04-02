@@ -1,0 +1,1071 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Taipei Forcing Club System Notes</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="style.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Taipei Forcing Club System Notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/jdh8/bridge-systems" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>This book is a collection of my bidding systems.  I have been studying forcing
+club systems since reading <em>Good, Better, Best</em> by Jan Eric Larsson, whose
+simulations show that forcing club systems tend to outperform other systems.
+I believe opening 1♣ for all strong hands is a superior treatment.</p>
+<p>Strawberry Polish Club is a <abbr title="Bridge Taiwan University">BTU</abbr>-flavored Polish Club largely based on <em>Polish
+Club 2020: Expert</em>.  Polish Club serves as a gateway to the world of forcing
+clubs.  It is 5-card major.  Its main opening range is 12–17. Sharing these
+properties, it has similar bidding structure to 2/1, the lingua franca of modern
+bridge.</p>
+<p>Blueberry Cottontail Club is a modernized mix of Blue Club and Cottontail Club
+along with new ideas from <abbr title="Bridge Taiwan University">BTU</abbr>.  It is a 4-card major strong club system with a
+moderately strong notrump.  It is highly experimental and subject to change
+without notice.</p>
+<h2 id="hand-evaluation"><a class="header" href="#hand-evaluation">Hand evaluation</a></h2>
+<ul>
+<li><strong>High card points (HCP)</strong>: the well-known Milton Work’s 4321 count</li>
+<li><strong>Total points</strong>: HCP + distribution points (void = 3, singleton = 2, doubleton
+= 1, subtract 1 for each short suit with HCP)</li>
+<li><strong>Zar points (ZP)</strong>: 6-4-2-1 + Zar distribution points (a + b + a - d, where the
+letters are the number of cards from the longest to the shortest suit)</li>
+<li><a href="https://bridge.thomasoandrews.com/valuations/cardvaluesfor3nt.html"><strong>Fifths</strong></a>:
+4.0–2.8–1.8–1.0–0.4, adjusted HCP for notrump contracts especially 3NT</li>
+<li><strong>BUM-RAP</strong>: 4.5–3–1.5–0.75–0.25, adjusted HCP for suit contracts</li>
+<li><strong><abbr title="New Losing Trick Count">NLTC</abbr></strong>: Count 1.5–1.0–0.5
+losers for each missing AKQ</li>
+</ul>
+<p><abbr title="New Losing Trick Count">NLTC</abbr> is a good single hand evaluator but not very additive.  It suits preemptive
+initial actions but not for showing supports.  I wrote a <a href="https://jdh8.org/nltc-a-good-single-hand-evaluator/">blog article</a> on
+that topic.</p>
+<h3 id="stopper"><a class="header" href="#stopper">Stopper</a></h3>
+<p>I evaluate stopper quality as <a href="https://www.bridgebase.com/doc/gib_descriptions.php">GIB</a> does.</p>
+<ul>
+<li><strong>Partial stop</strong>: length + HCP = 4</li>
+<li><strong>Likely stop</strong>: length + HCP = 5</li>
+<li><strong>Stop</strong>: A, QJx, or length + HCP at least 7</li>
+<li><strong>Two stops</strong>: length + HCP at least 8</li>
+</ul>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<h3 id="general-methods"><a class="header" href="#general-methods">General methods</a></h3>
+<ul>
+<li>Jan Eric Larsson.  <em>Good, Better, Best: A comparison of bridge bidding
+systems and conventions by computer simulation</em>.  ISBN 978-1771402415</li>
+<li>Thomas Andrews.  <a href="https://bridge.thomasoandrews.com/valuations/">Thomas’s Bridge Fantasia</a></li>
+<li>Bridge Base.  <a href="https://www.bridgebase.com/doc/gib_descriptions.php">GIB Bid Descriptions</a></li>
+</ul>
+<h3 id="polish-club"><a class="header" href="#polish-club">Polish Club</a></h3>
+<ul>
+<li>Krzysztof Jassem &amp; Tomek Brus.  <em>Polish Club 2020: Expert</em>.  ISBN 978-1771402248</li>
+<li>Krzysztof Jassem &amp; Tomek Brus.  <em>Polish Club 2020: Standard</em>.  ISBN 978-1771402231</li>
+<li>Krzysztof Jassem.
+<a href="https://jassem.pl/wp-content/uploads/2019/12/wj2020-25-59.pdf">Wspólny Język 2020 Standard</a></li>
+<li>Piotr Cegielski.
+<a href="https://iccs.pl/wp-content/uploads/2020/11/Wspolny-Jezyk-DUCE-wersja-Q1.2021.pdf">Wspólny Język DUCE</a></li>
+<li>Krzysztof Jassem.
+<a href="https://jassem.pl/wp-content/uploads/2016/08/Polish_Club-2010.html">Polish Club International 2010</a></li>
+<li>Krzysztof Jassem.
+<a href="https://par.cse.nsysu.edu.tw/~kbc/class/Polish_Club/WJ2005Full_original.pdf">Wspólny Język 2005 (Polish Standard)</a></li>
+</ul>
+<h3 id="precision-club"><a class="header" href="#precision-club">Precision Club</a></h3>
+<ul>
+<li>Daniel Neill.  <em>Standard Modern Precision: Getting from Here to There</em>.  ISBN
+978-1771401791</li>
+<li>Edward Piwowar.
+<a href="https://sites.google.com/view/bbaenglish/description-of-systems/pc-meckwell-lite-precision-club">PC - Meckwell Lite Precision Club</a></li>
+</ul>
+<h3 id="other-strong-clubs"><a class="header" href="#other-strong-clubs">Other strong clubs</a></h3>
+<ul>
+<li>Arturo Franco, Marco Pancotti, and Daniel J. Neill.
+<a href="https://bridgewithdan.com/wp-content/uploads/2019/07/BTC2000_gmeier.pdf">Blue Team Club</a></li>
+<li>Jan Eric Larsson, Anu Uus, and George Wang.
+<a href="https://github.com/Egroegw/Kaninklover">Kaninklöver / Cottontail Club: A Cheatsheet (2022)</a></li>
+<li>Bo-Yin Yang.
+<a href="https://bridgewithdan.com/wp-content/uploads/2022/01/terr_mosc.pdf">Terrorist’s Moscito, or Major-Oriented Strong Club, with Interpid Two Openers</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="strawberry-polish-club"><a class="header" href="#strawberry-polish-club">Strawberry Polish Club</a></h1>
+<p>Our Polish Club opening contains minimum clubs like <em>Polish Club 2020: Expert</em>.
+I adjust the 1<span class="♦">♦</span> opening to contain 18–20 unbalanced diamonds with no 4-card
+major.  This method makes 1♣-1<span class="♦">♦</span>-3m limited enough (21–23) for their level.</p>
+<div class="table-wrapper"><table><thead><tr><th>-</th><th></th></tr></thead><tbody>
+<tr><td>1♣!</td><td><abbr title="forcing">F</abbr>, Polish Club:<ol class="variants"> <li>12–14, 2–4♠, 2–4<span class="♥">♥</span>, 2–4<span class="♦">♦</span>, 2–4♣</li> <li>12–17, 5+♣ or 4414</li> <li>18+, not suitable for 1<span class="♦">♦</span></li> </ol></td></tr>
+<tr><td>1<span class="♦">♦</span></td><td><div>12–20, 5+<span class="♦">♦</span> or 4<span class="♦">♦</span>(441).</div><div>If 18+: <abbr title="unbalanced">UNBAL</abbr>, 0–3♠, 0–3<span class="♥">♥</span>.</div></td></tr>
+<tr><td>1<span class="♥">♥</span></td><td>12–17, 5+<span class="♥">♥</span></td></tr>
+<tr><td>1♠</td><td>12–17, 5+♠</td></tr>
+<tr><td>1NT</td><td>15–17, 2–4♠, 2–4<span class="♥">♥</span>, 2–6<span class="♦">♦</span>, 2–6♣</td></tr>
+<tr><td>2♣!</td><td><abbr title="preemptive">PRE</abbr>, 4+♠, 4+<span class="♥">♥</span>, not 44(32) if <abbr title="vulnerable">VUL</abbr></td></tr>
+<tr><td>2<span class="♦">♦</span>!</td><td><abbr title="preemptive">PRE</abbr>, 6+<abbr title="major suit">M</abbr></td></tr>
+<tr><td>2M!</td><td><abbr title="preemptive">PRE</abbr>, 5=#, 4+<abbr title="minor suit">m</abbr></td></tr>
+<tr><td>2NT!</td><td><abbr title="unusual notrump">UNT</abbr>, 5+<span class="♦">♦</span>, 5+♣</td></tr>
+<tr><td>3X</td><td><abbr title="preemptive">PRE</abbr>, 7+#</td></tr>
+<tr><td>3NT!</td><td>Gambling, <abbr title="solid">SOL</abbr> 7+<abbr title="minor suit">m</abbr>, 0–1 outside A/K</td></tr>
+<tr><td>4♣!</td><td><abbr title="preemptive">PRE</abbr>, <abbr title="semi-solid">S-<abbr title="solid">SOL</abbr></abbr> 8+<abbr title="major suit">M</abbr>, 0–1 outside A/K</td></tr>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="preemptive">PRE</abbr>, <abbr title="solid">SOL</abbr> 8+<abbr title="major suit">M</abbr>, no outside A/K</td></tr>
+<tr><td>4M</td><td><abbr title="preemptive">PRE</abbr>, 8+#</td></tr>
+<tr><td>4NT!</td><td><abbr title="unusual notrump">UNT</abbr>, 6+<span class="♦">♦</span>, 6+♣</td></tr>
+</tbody></table>
+</div>
+<h2 id="the-notrump-ladder"><a class="header" href="#the-notrump-ladder">The notrump ladder</a></h2>
+<ul>
+<li><strong>12–14</strong>: 1♣-1<span class="♦">♦</span>-1M</li>
+<li><strong>15–17</strong>: 1NT</li>
+<li><strong>18–20</strong>: 1♣-1<span class="♦">♦</span>-1NT</li>
+<li><strong>21–23</strong>: 1♣-1<span class="♦">♦</span>-2<span class="♦">♦</span></li>
+<li><strong>24+</strong>: 1♣-1<span class="♦">♦</span>-2NT</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="polish-1"><a class="header" href="#polish-1">Polish 1♣</a></h1>
+<p>This Polish Club has 3 variants:</p>
+<ul>
+<li>12–14, 2–4♠, 2–4<span class="♥">♥</span>, 2–4<span class="♦">♦</span>, 2–4♣</li>
+<li>12–17, 5+♣ or 4414</li>
+<li>18+, not suitable for 1<span class="♦">♦</span></li>
+</ul>
+<p>Note that 2♣ is no longer natural since <em>Polish Club 2020: Expert</em>.  1♣ takes
+care of all ♣-suited hands.</p>
+<p>I move invitational hands out of 1♣-1<span class="♦">♦</span> relay to make it non-forcing.  I believe
+this method is more resilient to interference.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-</th><th>Quasi-<abbr title="natural">NAT</abbr> or 18+</th></tr></thead><tbody>
+<tr><td>1<span class="♦">♦</span>!</td><td><abbr title="non-forcing">NF</abbr> <abbr title="negative">NEG</abbr>, 0–9</td></tr>
+<tr><td>1<span class="♥">♥</span></td><td><abbr title="forcing">F</abbr>, 7+, 4+<span class="♥">♥</span></td></tr>
+<tr><td>1♠</td><td><abbr title="forcing">F</abbr>, 7+, 4+♠</td></tr>
+<tr><td>1NT</td><td><abbr title="balanced">BAL</abbr> <abbr title="constructive">CONST</abbr>, 8–10, 2–3♠, 2–3<span class="♥">♥</span>, 2–5<span class="♦">♦</span>, 2–5♣</td></tr>
+<tr><td>2♣</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 5+♣</td></tr>
+<tr><td>2<span class="♦">♦</span></td><td><abbr title="forcing to game (3NT)">FG</abbr>, 5+<span class="♦">♦</span></td></tr>
+<tr><td>2<span class="♥">♥</span>!</td><td><abbr title="pass or correct">P/C</abbr>, 7–9, 4+<span class="♥">♥</span>, 5+♠</td></tr>
+<tr><td>2♠!</td><td><abbr title="invitational">INV</abbr>, 10–11, 0–3♠, 0–3<span class="♥">♥</span>, 2–5<span class="♦">♦</span>, 2–5♣</td></tr>
+<tr><td>2NT!</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 2–3♠, 2–3<span class="♥">♥</span>, 3–4<span class="♦">♦</span>, 3–4♣</td></tr>
+<tr><td>3♣</td><td><abbr title="invitational">INV</abbr>, 9–11, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="invitational">INV</abbr>, 9–11, 6+<span class="♦">♦</span></td></tr>
+<tr><td>3M</td><td><abbr title="preemptive">PRE</abbr>, 3–6, 7+#</td></tr>
+<tr><td>3NT</td><td>12–15, 33(43)</td></tr>
+<tr><td>4♣!</td><td><abbr title="preemptive">PRE</abbr>, <abbr title="semi-solid">S-<abbr title="solid">SOL</abbr></abbr> 8+<abbr title="major suit">M</abbr>, 0–1 outside A/K</td></tr>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="preemptive">PRE</abbr>, <abbr title="solid">SOL</abbr> 8+<abbr title="major suit">M</abbr>, no outside A/K</td></tr>
+<tr><td>4M</td><td><abbr title="preemptive">PRE</abbr>, 8+#</td></tr>
+</tbody></table>
+</div>
+<h2 id="P-1C"><a class="header" href="#P-1C">P-1♣</a></h2>
+<p>Game-forcing responses degenerate to corresponding invitations.</p>
+<div class="table-wrapper"><table><thead><tr><th>P-1♣-</th><th>Quasi-<abbr title="natural">NAT</abbr> or 18+</th></tr></thead><tbody>
+<tr><td>2♣</td><td><abbr title="invitational">INV</abbr>, 5+♣, 0–3♠, 0–3<span class="♥">♥</span></td></tr>
+<tr><td>2<span class="♦">♦</span></td><td><abbr title="invitational">INV</abbr>, 5+<span class="♦">♦</span>, 0–3♠, 0–3<span class="♥">♥</span></td></tr>
+<tr><td>2♠!</td><td><abbr title="unbalanced">UNBAL</abbr> <abbr title="invitational">INV</abbr>, 0–3♠, 0–3<span class="♥">♥</span>, 4–5<span class="♦">♦</span>, 4–5♣</td></tr>
+<tr><td>2NT</td><td><abbr title="balanced">BAL</abbr> <abbr title="invitational">INV</abbr>, 2–3♠, 2–3<span class="♥">♥</span>, 2–5<span class="♦">♦</span>, 2–5♣</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="negative-1"><a class="header" href="#negative-1">Negative 1<span class="♦">♦</span></a></h1>
+<p>In our version of Polish Club, the 1<span class="♦">♦</span> relay denies invitational values.  This
+relay contains weak hands without another suitable bid.</p>
+<div class="table-wrapper"><table><thead><tr><th>Strength</th><th>Distribution</th></tr></thead><tbody>
+<tr><td>0–6</td><td>Any</td></tr>
+<tr><td>7–9</td><td>0–3♠, 0–3<span class="♥">♥</span></td></tr>
+</tbody></table>
+</div>
+<p>We swap the 2<span class="♦">♦</span> and 2NT responses for better constructiveness by courtesy of
+Ting-Yu Ye (TpKotoba).</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♦">♦</span>-</th><th>0–9</th></tr></thead><tbody>
+<tr><td>P</td><td><abbr title="balanced">BAL</abbr> <abbr title="minimum">MIN</abbr>, 4=<span class="♦">♦</span></td></tr>
+<tr><td>1<span class="♥">♥</span></td><td><abbr title="forcing">F</abbr>, 12–19, 4+<span class="♥">♥</span> or <abbr title="balanced">BAL</abbr> <abbr title="minimum">MIN</abbr> 3=<span class="♥">♥</span></td></tr>
+<tr><td>1♠</td><td><abbr title="forcing">F</abbr>, 12–19, 4+♠</td></tr>
+<tr><td>1NT</td><td><abbr title="balanced">BAL</abbr>, 18–20, 2–4♠, 2–4<span class="♥">♥</span>, 2–6<span class="♦">♦</span>, 2–6♣</td></tr>
+<tr><td>2♣</td><td><abbr title="non-forcing">NF</abbr>, 12–20, <abbr title="unbalanced">UNBAL</abbr> 5+♣</td></tr>
+<tr><td>2<span class="♦">♦</span>!</td><td><abbr title="non-forcing">NF</abbr>, 21–23, 1–4♠, 1–4<span class="♥">♥</span>, 0–5<span class="♦">♦</span>, 0–5♣</td></tr>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="forcing to game (3NT)">FG</abbr>, 20–23, 5+<span class="♥">♥</span></td></tr>
+<tr><td>2♠</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 20–23, 5+♠</td></tr>
+<tr><td>2NT</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 24+</td></tr>
+<tr><td>3♣</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 21–23, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="forcing to game (3NT)">FG</abbr>, 21–23, 6+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span>!</td><td><abbr title="Splinter">SPL</abbr>, 21–23, 40(54)</td></tr>
+<tr><td>3♠!</td><td><abbr title="Splinter">SPL</abbr>, 21–23, 04(54)</td></tr>
+<tr><td>3NT!</td><td>Gambling, <abbr title="solid">SOL</abbr> 7+♣, likely stops in two side suits</td></tr>
+</tbody></table>
+</div>
+<h2 id="1C-1D-1M"><a class="header" href="#1C-1D-1M">1♣-1<span class="♦">♦</span>-1M</a></h2>
+<p>Given that Polish Club is a 5-card major system, the major suit left in 1♣-1<span class="♦">♦</span>-1M
+gets longer when stronger.</p>
+<div class="table-wrapper"><table><thead><tr><th>Strength</th><th>Length</th></tr></thead><tbody>
+<tr><td>12–14</td><td>4=# or occasional <abbr title="unbalanced">UNBAL</abbr> 3=#</td></tr>
+<tr><td>15–17</td><td>4=# or occasional 5+# 6+♣</td></tr>
+<tr><td>18–19</td><td>5+# or <abbr title="unbalanced">UNBAL</abbr> 4=#</td></tr>
+</tbody></table>
+</div>
+<p>I reuse 2NT for the most pesky hands in the range of 1♣-1<span class="♦">♦</span>.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♦">♦</span>-1M-</th><th>12–19, usually 4+<abbr title="major suit">M</abbr></th></tr></thead><tbody>
+<tr><td>1NT</td><td><abbr title="balanced">BAL</abbr>, 5–7, 1–3M</td></tr>
+<tr><td>2M</td><td><abbr title="non-forcing">NF</abbr>, 4–6, 4–5# or <abbr title="unbalanced">UNBAL</abbr> 3=#</td></tr>
+<tr><td>2NT!</td><td><abbr title="unusual notrump">UNT</abbr>, 7–9, usually 5+<span class="♦">♦</span> 5+♣</td></tr>
+<tr><td>3♣</td><td><abbr title="maximum/maximal">MAX</abbr>, 7–9, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="maximum/maximal">MAX</abbr>, 7–9, 6+<span class="♦">♦</span></td></tr>
+<tr><td>3M</td><td><abbr title="non-forcing">NF</abbr>, 4–6, 5+#</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♦">♦</span>-1<span class="♥">♥</span>-</th><th>12–19, usually 4+<span class="♥">♥</span></th></tr></thead><tbody>
+<tr><td>1♠</td><td><abbr title="non-forcing">NF</abbr>, 4–6, 4+♠</td></tr>
+<tr><td>2♠</td><td><abbr title="non-forcing">NF</abbr>, 4–6, 6+♠</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♦">♦</span>-1♠-</th><th>12–19, usually 4+♠</th></tr></thead><tbody>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="non-forcing">NF</abbr>, 4–6, 5+<span class="♥">♥</span></td></tr>
+</tbody></table>
+</div>
+<h2 id="1C-1D-1NT"><a class="header" href="#1C-1D-1NT">1♣-1<span class="♦">♦</span>-1NT</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♦">♦</span>-1NT-</th><th><abbr title="balanced">BAL</abbr> 18–20</th></tr></thead><tbody>
+<tr><td>2♣!</td><td><abbr title="Stayman">STAY</abbr>, Garbage <abbr title="Stayman">STAY</abbr>, or <abbr title="invitational">INV</abbr> 5=♠</td></tr>
+<tr><td>2<span class="♦">♦</span>!</td><td><abbr title="transfer">TRF</abbr>, 5+<span class="♥">♥</span></td></tr>
+<tr><td>2<span class="♥">♥</span>!</td><td><abbr title="transfer">TRF</abbr>, 5+♠</td></tr>
+<tr><td>2♠!</td><td>Minor suit Multi/<abbr title="Stayman">STAY</abbr>, 6+<abbr title="minor suit">m</abbr> or <abbr title="forcing to game (3NT)">FG</abbr> 4+<span class="♦">♦</span> 4+♣</td></tr>
+<tr><td>2♠-2NT</td><td>1–3<span class="♦">♦</span>, 1–3♣</td></tr>
+<tr><td>2♠-3♣!</td><td>4+<span class="♦">♦</span></td></tr>
+<tr><td>2♠-3<span class="♦">♦</span>!</td><td>4+♣</td></tr>
+<tr><td>2NT</td><td><abbr title="natural">NAT</abbr> <abbr title="invitational">INV</abbr></td></tr>
+<tr><td>3♣</td><td><abbr title="invitational">INV</abbr>, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="invitational">INV</abbr>, 6+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span>!</td><td><abbr title="invitational">INV</abbr>, 5+♠, 5+<span class="♥">♥</span></td></tr>
+<tr><td>3♠!</td><td>Choice of games, 5+♠, 5+<span class="♥">♥</span></td></tr>
+<tr><td>4♣!</td><td>Gerber <abbr title="Blackwood">BW</abbr></td></tr>
+<tr><td>4<span class="♦">♦</span>!</td><td>Texas <abbr title="transfer">TRF</abbr>, 6+<span class="♥">♥</span></td></tr>
+<tr><td>4<span class="♥">♥</span>!</td><td>Texas <abbr title="transfer">TRF</abbr>, 6+♠</td></tr>
+</tbody></table>
+</div>
+<h2 id="1C-1D-2C"><a class="header" href="#1C-1D-2C">1♣-1<span class="♦">♦</span>-2♣</a></h2>
+<p>The 2♣ rebid is wide, but worry not.  Lebensohl fits in this reverse-like
+auction.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♦">♦</span>-2♣-</th><th>12–20, <abbr title="unbalanced">UNBAL</abbr> 5+♣</th></tr></thead><tbody>
+<tr><td>2<span class="♦">♦</span></td><td><abbr title="non-forcing">NF</abbr>, 5–9, 6+<span class="♦">♦</span></td></tr>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="non-forcing">NF</abbr>, 4–6, 5+<span class="♥">♥</span></td></tr>
+<tr><td>2♠</td><td><abbr title="non-forcing">NF</abbr>, 4–6, 5+♠</td></tr>
+<tr><td>2NT!</td><td><abbr title="Lebensohl">LEB</abbr>, 5–7, 3+♣ or 7+<span class="♦">♦</span></td></tr>
+<tr><td>3♣</td><td><abbr title="non-forcing">NF</abbr>, 7–9, 4+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="non-forcing">NF</abbr>, 7–9, 7+<span class="♦">♦</span></td></tr>
+</tbody></table>
+</div>
+<h2 id="1C-1D-2D"><a class="header" href="#1C-1D-2D">1♣-1<span class="♦">♦</span>-2<span class="♦">♦</span></a></h2>
+<p>The 2<span class="♦">♦</span> rebid shows a nearly balanced hand with 21–23 HCP.  If you can force
+to game, bid as if partner opened a natural 2NT.  Otherwise, try to sign off at
+the 2-level.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♦">♦</span>-2<span class="♦">♦</span>-</th><th>21–23, 1–4♠, 1–4<span class="♥">♥</span></th></tr></thead><tbody>
+<tr><td>P</td><td>To play, usually 5+<span class="♦">♦</span></td></tr>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="non-forcing">NF</abbr>, 4+<span class="♥">♥</span></td></tr>
+<tr><td>2♠</td><td><abbr title="non-forcing">NF</abbr>, 4+♠</td></tr>
+<tr><td>2NT</td><td><abbr title="signoff">S/O</abbr></td></tr>
+<tr><td>3♣!</td><td><abbr title="forcing to game (3NT)">FG</abbr>, <abbr title="Stayman">STAY</abbr></td></tr>
+<tr><td>3<span class="♦">♦</span>!</td><td><abbr title="transfer">TRF</abbr>, 5+<span class="♥">♥</span></td></tr>
+<tr><td>3<span class="♥">♥</span>!</td><td><abbr title="transfer">TRF</abbr>, 5+♠</td></tr>
+<tr><td>3♠!</td><td>Minor suit Multi/<abbr title="Stayman">STAY</abbr>, 6+<abbr title="minor suit">m</abbr> or <abbr title="forcing to game (3NT)">FG</abbr> 4+<span class="♦">♦</span> 4+♣</td></tr>
+<tr><td>3NT</td><td><abbr title="signoff">S/O</abbr></td></tr>
+</tbody></table>
+</div>
+<h2 id="1C-1D-2NT"><a class="header" href="#1C-1D-2NT">1♣-1<span class="♦">♦</span>-2NT</a></h2>
+<p>Opener forces to game single-handedly by rebidding 2NT.  The shape of such a
+strong hand is predominantly balanced.  I would treat it as a strong notrump
+that allows 5-card major.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♦">♦</span>-2NT-</th><th>24+</th></tr></thead><tbody>
+<tr><td>3♣!</td><td>Muppet <abbr title="Stayman">STAY</abbr>, 3+<abbr title="major suit">M</abbr></td></tr>
+<tr><td>3<span class="♦">♦</span>!</td><td>Muppet <abbr title="transfer">TRF</abbr>, 5+<span class="♥">♥</span></td></tr>
+<tr><td>3<span class="♥">♥</span>!</td><td><abbr title="transfer">TRF</abbr>, 5+♠</td></tr>
+<tr><td>3NT</td><td><abbr title="signoff">S/O</abbr></td></tr>
+<tr><td>4♣!</td><td>Gerber <abbr title="Blackwood">BW</abbr></td></tr>
+<tr><td>4<span class="♦">♦</span>!</td><td>Choice of games, 5+♠, 5+<span class="♥">♥</span></td></tr>
+<tr><td>4<span class="♥">♥</span>!</td><td>!<abbr title="Splinter">SPL</abbr>, 0–1<span class="♥">♥</span>, 2–3♠, 4–5<span class="♦">♦</span>, 4–5♣</td></tr>
+<tr><td>4♠!</td><td>!<abbr title="Splinter">SPL</abbr>, 0–1♠, 2–3<span class="♥">♥</span>, 4–5<span class="♦">♦</span>, 4–5♣</td></tr>
+<tr><td>4NT</td><td><abbr title="quantitative">QUANT</abbr> <abbr title="invitational">INV</abbr> to 6NT</td></tr>
+</tbody></table>
+</div>
+<p>Muppet Stayman is an ambitious convention that tries to find both 5-3 and 4-4
+major fits.  It swaps 3<span class="♥">♥</span> and 3NT steps from Puppet Stayman to find 3-5 spades.
+Note that responder rebids 3♠ to <strong>deny</strong> spades.  This gadget, similar to
+Smolen, lets opener declare.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♦">♦</span>; 2NT-3♣-</th><th>Muppet <abbr title="Stayman">STAY</abbr></th></tr></thead><tbody>
+<tr><td>3<span class="♦">♦</span>!</td><td><abbr title="relay">(R)</abbr>, 4=<abbr title="major suit">M</abbr></td></tr>
+<tr><td>3<span class="♥">♥</span>!</td><td><abbr title="negative">NEG</abbr>, 0–3♠, 0–3<span class="♥">♥</span></td></tr>
+<tr><td>3<span class="♥">♥</span>-3♠!</td><td><abbr title="relay">(R)</abbr>, 0–4♠</td></tr>
+<tr><td>3<span class="♥">♥</span>-3NT!</td><td><abbr title="transfer">TRF</abbr>, 5+♠</td></tr>
+<tr><td>3♠</td><td>5+♠</td></tr>
+<tr><td>3NT!</td><td><abbr title="transfer">TRF</abbr>, 5+<span class="♥">♥</span></td></tr>
+</tbody></table>
+</div>
+<p>Muppet Stayman also affects transfer to hearts to find 4-4 spade fit.  Again,
+responder rebids 3♠ to <strong>deny</strong> spades.</p>
+<p>Opener can reject the transfer with 3NT.  Such entitlement is why I choose
+Muppet over Romex.  Romex Stayman allows a garbage variant, but it is not very
+useful here because the auction is already game-forcing.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♦">♦</span>; 2NT-3<span class="♦">♦</span>-</th><th>Muppet <abbr title="transfer">TRF</abbr></th></tr></thead><tbody>
+<tr><td>3<span class="♥">♥</span></td><td>2+<span class="♥">♥</span></td></tr>
+<tr><td>3<span class="♥">♥</span>-3♠!</td><td><abbr title="relay">(R)</abbr>, 0–3♠</td></tr>
+<tr><td>3<span class="♥">♥</span>-3NT!</td><td><abbr title="transfer">TRF</abbr>, 4+♠</td></tr>
+<tr><td>3♠</td><td>5+♠</td></tr>
+<tr><td>3NT</td><td>0–1<span class="♥">♥</span>, 0–4♠</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="positive-1m"><a class="header" href="#positive-1m">Positive 1M</a></h1>
+<p>The positive responses 1♣-1<span class="♥">♥</span>♠ show 7+ points and 4+ cards.  They are as natural
+as in a natural bidding system.  We also use conventions from 2/1, a ubiquitous
+5-card major system.</p>
+<p>Odwrotka 1♣-1M-2<span class="♦">♦</span> is a fit reverse showing a game-forcing 3+ card support.  The
+jump reverse of the other major shows a game-forcing minor two suiter to
+alleviate the burden on 2NT.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♥">♥</span>-</th><th>7+, 4+<span class="♥">♥</span></th></tr></thead><tbody>
+<tr><td>1♠</td><td><abbr title="forcing">F</abbr>, 4+♠</td></tr>
+<tr><td>1NT</td><td><abbr title="balanced">BAL</abbr> 12–14, 2–3♠, 2–3<span class="♥">♥</span></td></tr>
+<tr><td>2♣</td><td><abbr title="unbalanced">UNBAL</abbr>, 12–17, 5+♣, 0–3♠, 0–3<span class="♥">♥</span></td></tr>
+<tr><td>2<span class="♦">♦</span>!</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 3+<span class="♥">♥</span></td></tr>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="minimum">MIN</abbr>, 12–14, 4=<span class="♥">♥</span></td></tr>
+<tr><td>2♠!</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 18+, 5+<span class="♦">♦</span>, 5+♣</td></tr>
+<tr><td>2NT</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 18+, 2–3♠, 1–2<span class="♥">♥</span>, 3–5<span class="♦">♦</span>, 3–5♣</td></tr>
+<tr><td>3♣</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 18+, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="forcing to game (3NT)">FG</abbr>, 18+, 6+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="invitational">INV</abbr>, 15–17, 4+<span class="♥">♥</span></td></tr>
+<tr><td>3♠!</td><td><abbr title="Splinter">SPL</abbr>, 0–1♠, 4+<span class="♥">♥</span></td></tr>
+<tr><td>3NT</td><td><abbr title="solid">SOL</abbr> 7+♣, partial stops in ♠ and <span class="♦">♦</span></td></tr>
+<tr><td>4♣!</td><td><abbr title="Splinter">SPL</abbr>, 0–1♣, 4+<span class="♥">♥</span></td></tr>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="Splinter">SPL</abbr>, 0–1<span class="♦">♦</span>, 4+<span class="♥">♥</span></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>1♣-1♠-</th><th>7+, 4+♠</th></tr></thead><tbody>
+<tr><td>1NT</td><td><abbr title="balanced">BAL</abbr> 12–14, 2–3♠, 2–3<span class="♥">♥</span></td></tr>
+<tr><td>2♣</td><td><abbr title="unbalanced">UNBAL</abbr>, 12–17, 5+♣, 0–3♠, 0–3<span class="♥">♥</span></td></tr>
+<tr><td>2<span class="♦">♦</span>!</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 3+♠</td></tr>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="forcing to game (3NT)">FG</abbr>, 5+<span class="♥">♥</span></td></tr>
+<tr><td>2♠!</td><td><abbr title="minimum">MIN</abbr>, 12–14, 4=♠</td></tr>
+<tr><td>2NT</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 2–3♠, 1–2<span class="♥">♥</span>, 3–5<span class="♦">♦</span>, 3–5♣</td></tr>
+<tr><td>3♣</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="forcing to game (3NT)">FG</abbr>, 6+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span>!</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 5+<span class="♦">♦</span>, 5+♣</td></tr>
+<tr><td>3♠</td><td><abbr title="invitational">INV</abbr>, 15–17, 4+♠</td></tr>
+<tr><td>3NT</td><td><abbr title="solid">SOL</abbr> 7+♣, partial stops in <span class="♥">♥</span> and <span class="♦">♦</span></td></tr>
+<tr><td>4♣!</td><td><abbr title="Splinter">SPL</abbr>, 0–1♣, 4+♠</td></tr>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="Splinter">SPL</abbr>, 0–1<span class="♦">♦</span>, 4+♠</td></tr>
+<tr><td>4<span class="♥">♥</span>!</td><td><abbr title="Splinter">SPL</abbr>, 0–1<span class="♥">♥</span>, 4+♠</td></tr>
+</tbody></table>
+</div>
+<h2 id="btu-xyz-or-three-way-checkback"><a class="header" href="#btu-xyz-or-three-way-checkback"><abbr title="Bridge Taiwan University">BTU</abbr> XYZ or three-way checkback</a></h2>
+<p>We use <abbr title="Bridge Taiwan University">BTU</abbr>-style 3-way checkback to an XYZ auction.  There are 3 artificial
+relays in the three-way checkback:</p>
+<ul>
+<li><strong>2♣</strong>: several variants:
+<ul>
+<li>to play 2X</li>
+<li>strongly shaped invitation</li>
+<li>balanced invitation or choice of games</li>
+</ul>
+</li>
+<li><strong>2<span class="♦">♦</span></strong>: game-forcing checkback, usually a choice of games</li>
+<li><strong>2NT</strong>: transfer to clubs</li>
+</ul>
+<p>As a corollary, natural 2X are wide-range invitations and 3X become slam tries.</p>
+<h2 id="1C-1H-1S"><a class="header" href="#1C-1H-1S">1♣-1<span class="♥">♥</span>-1♠</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♥">♥</span>-1♠-</th><th><abbr title="forcing">F</abbr>, 4+♠</th></tr></thead><tbody>
+<tr><td>1NT</td><td><abbr title="minimum">MIN</abbr>, 0–3♠</td></tr>
+<tr><td>2♣!</td><td><abbr title="Bridge Taiwan University">BTU</abbr> <abbr title="checkback">CB</abbr>, <abbr title="forcing one round">F1</abbr></td></tr>
+<tr><td>2<span class="♦">♦</span>!</td><td><abbr title="forcing to game (3NT)">FG</abbr> <abbr title="checkback">CB</abbr></td></tr>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="invitational">INV</abbr>, 5+<span class="♥">♥</span></td></tr>
+<tr><td>2♠</td><td><abbr title="invitational">INV</abbr>, 4+♠</td></tr>
+<tr><td>2NT</td><td><abbr title="transfer">TRF</abbr>, <abbr title="preemptive">PRE</abbr> or <abbr title="forcing to game (3NT)">FG</abbr>, 6+♣</td></tr>
+<tr><td>3♣</td><td><abbr title="slam try">S/T</abbr>, 5+♣, 5+<span class="♥">♥</span></td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="slam try">S/T</abbr>, 5+<span class="♦">♦</span>, 5+<span class="♥">♥</span></td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="slam try">S/T</abbr>, 6+<span class="♥">♥</span></td></tr>
+<tr><td>3♠</td><td><abbr title="slam try">S/T</abbr>, 4+♠</td></tr>
+<tr><td>3NT</td><td>12–15, 0–3♠, 4=<span class="♥">♥</span>, 0–5<span class="♦">♦</span>, 0–5♣</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♥">♥</span>; 1♠-2♣-</th><th><abbr title="Bridge Taiwan University">BTU</abbr> <abbr title="checkback">CB</abbr></th></tr></thead><tbody>
+<tr><td>2<span class="♦">♦</span>!</td><td><abbr title="minimum">MIN</abbr>, 12–14</td></tr>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="invitational">INV</abbr>, 15–17, 3=<span class="♥">♥</span></td></tr>
+<tr><td>2♠</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 5+♠, 0–2<span class="♥">♥</span></td></tr>
+<tr><td>2NT</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 4=♠</td></tr>
+<tr><td>3♣</td><td><abbr title="invitational">INV</abbr>, 15–17, 5+♣, 0–2<span class="♥">♥</span></td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="forcing to game (3NT)">FG</abbr>, 5+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="forcing to game (3NT)">FG</abbr>, 5+♠, 3=<span class="♥">♥</span></td></tr>
+<tr><td>3♠!</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 5+♣, 4=♠, 0–2<span class="♥">♥</span></td></tr>
+<tr><td>3NT</td><td>Mild <abbr title="slam try">S/T</abbr>, 21–23, 4=♠</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♥">♥</span>; 1♠-2♣; 2<span class="♦">♦</span>-</th><th><abbr title="minimum">MIN</abbr>, 12–14</th></tr></thead><tbody>
+<tr><td>P</td><td>To play, 5+<span class="♦">♦</span></td></tr>
+<tr><td>2<span class="♥">♥</span></td><td>To play, 5+<span class="♥">♥</span></td></tr>
+<tr><td>2♠</td><td>To play, 4+♠</td></tr>
+<tr><td>2NT</td><td><abbr title="balanced">BAL</abbr> <abbr title="invitational">INV</abbr></td></tr>
+<tr><td>3♣</td><td><abbr title="invitational">INV</abbr>, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="invitational">INV</abbr>, 6+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="invitational">INV</abbr>, <abbr title="semi-solid">S-<abbr title="solid">SOL</abbr></abbr> 6+<span class="♥">♥</span></td></tr>
+<tr><td>3♠</td><td><abbr title="invitational">INV</abbr>, 4+♠, 5+<span class="♥">♥</span></td></tr>
+</tbody></table>
+</div>
+<h2 id="1C-1H-1NT"><a class="header" href="#1C-1H-1NT">1♣-1<span class="♥">♥</span>-1NT</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♥">♥</span>-1NT-</th><th><abbr title="balanced">BAL</abbr> 12–14</th></tr></thead><tbody>
+<tr><td>2♣!</td><td><abbr title="Bridge Taiwan University">BTU</abbr> <abbr title="checkback">CB</abbr>, <abbr title="forcing one round">F1</abbr></td></tr>
+<tr><td>2♣-2<span class="♦">♦</span>!</td><td><abbr title="pass or correct">P/C</abbr></td></tr>
+<tr><td>2♣-2<span class="♥">♥</span></td><td><abbr title="maximum/maximal">MAX</abbr>, 3=<span class="♥">♥</span></td></tr>
+<tr><td>2<span class="♦">♦</span>!</td><td><abbr title="forcing to game (3NT)">FG</abbr> <abbr title="checkback">CB</abbr></td></tr>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="invitational">INV</abbr>, 5+<span class="♥">♥</span></td></tr>
+<tr><td>2♠</td><td><abbr title="invitational">INV</abbr>, 4+♠</td></tr>
+<tr><td>2NT</td><td><abbr title="transfer">TRF</abbr>, <abbr title="preemptive">PRE</abbr> or <abbr title="forcing to game (3NT)">FG</abbr>, 6+♣</td></tr>
+<tr><td>3♣</td><td><abbr title="slam try">S/T</abbr>, 5+♣, 5+<span class="♥">♥</span></td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="slam try">S/T</abbr>, 5+<span class="♦">♦</span>, 5+<span class="♥">♥</span></td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="slam try">S/T</abbr>, 6+<span class="♥">♥</span></td></tr>
+<tr><td>3♠!</td><td><abbr title="Splinter">SPL</abbr>, 0–1♠, 6+<span class="♥">♥</span></td></tr>
+<tr><td>3N</td><td>12–15, 4=<span class="♥">♥</span></td></tr>
+<tr><td>4♣!</td><td><abbr title="Splinter">SPL</abbr>, 0–1♣, 6+<span class="♥">♥</span></td></tr>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="Splinter">SPL</abbr>, 0–1<span class="♦">♦</span>, 6+<span class="♥">♥</span></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>1♣-1<span class="♥">♥</span>; 1NT-2♣; 2<span class="♦">♦</span>-</th><th><abbr title="balanced">BAL</abbr> 12–14, <abbr title="pass or correct">P/C</abbr></th></tr></thead><tbody>
+<tr><td>2<span class="♥">♥</span></td><td>To play, 5+<span class="♥">♥</span></td></tr>
+<tr><td>2♠</td><td><abbr title="invitational">INV</abbr>, 4+♠, 6+<span class="♥">♥</span></td></tr>
+<tr><td>2NT</td><td><abbr title="balanced">BAL</abbr> <abbr title="invitational">INV</abbr></td></tr>
+<tr><td>3♣</td><td><abbr title="invitational">INV</abbr>, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="invitational">INV</abbr>, 6+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="invitational">INV</abbr>, <abbr title="semi-solid">S-<abbr title="solid">SOL</abbr></abbr> 6+<span class="♥">♥</span></td></tr>
+<tr><td>3NT</td><td>Choice of games, 5<span class="♥">♥</span>(332)</td></tr>
+</tbody></table>
+</div>
+<h2 id="1C-1S-1NT"><a class="header" href="#1C-1S-1NT">1♣-1♠-1NT</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1♠-1NT-</th><th><abbr title="balanced">BAL</abbr> 12–14</th></tr></thead><tbody>
+<tr><td>2♣!</td><td><abbr title="Bridge Taiwan University">BTU</abbr> <abbr title="checkback">CB</abbr>, <abbr title="forcing one round">F1</abbr></td></tr>
+<tr><td>2♣-2<span class="♦">♦</span>!</td><td><abbr title="pass or correct">P/C</abbr></td></tr>
+<tr><td>2♣-2<span class="♥">♥</span></td><td><abbr title="maximum/maximal">MAX</abbr>, 4=<span class="♥">♥</span></td></tr>
+<tr><td>2♣-2♠</td><td><abbr title="maximum/maximal">MAX</abbr>, 3=♠</td></tr>
+<tr><td>2<span class="♦">♦</span>!</td><td><abbr title="forcing to game (3NT)">FG</abbr> <abbr title="checkback">CB</abbr></td></tr>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="invitational">INV</abbr>, 4+<span class="♥">♥</span>, 5+♠</td></tr>
+<tr><td>2♠</td><td><abbr title="invitational">INV</abbr>, 5+♠</td></tr>
+<tr><td>2NT</td><td><abbr title="transfer">TRF</abbr>, <abbr title="preemptive">PRE</abbr> or <abbr title="forcing to game (3NT)">FG</abbr>, 6+♣</td></tr>
+<tr><td>3♣</td><td><abbr title="slam try">S/T</abbr>, 5+♣, 5+♠</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="slam try">S/T</abbr>, 5+<span class="♦">♦</span>, 5+♠</td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="slam try">S/T</abbr>, 5+<span class="♥">♥</span>, 5+♠</td></tr>
+<tr><td>3♠</td><td><abbr title="slam try">S/T</abbr>, 6+♠</td></tr>
+<tr><td>3NT</td><td>12–15, 4=♠</td></tr>
+<tr><td>4♣!</td><td><abbr title="Splinter">SPL</abbr>, 0–1♣, 6+♠</td></tr>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="Splinter">SPL</abbr>, 0–1<span class="♦">♦</span>, 6+♠</td></tr>
+<tr><td>4<span class="♥">♥</span>!</td><td><abbr title="Splinter">SPL</abbr>, 0–1<span class="♥">♥</span>, 6+♠</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>1♣-1♠; 1NT-2♣; 2<span class="♦">♦</span>-</th><th><abbr title="balanced">BAL</abbr> 12–14, <abbr title="pass or correct">P/C</abbr></th></tr></thead><tbody>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="invitational">INV</abbr>, 5+<span class="♥">♥</span>, 5+♠</td></tr>
+<tr><td>2♠</td><td>To play, 5+♠</td></tr>
+<tr><td>2NT</td><td><abbr title="balanced">BAL</abbr> <abbr title="invitational">INV</abbr></td></tr>
+<tr><td>3♣</td><td><abbr title="invitational">INV</abbr>, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="invitational">INV</abbr>, 6+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="invitational">INV</abbr>, 4+<span class="♥">♥</span>, 6+♠</td></tr>
+<tr><td>3♠</td><td><abbr title="invitational">INV</abbr>, <abbr title="semi-solid">S-<abbr title="solid">SOL</abbr></abbr> 6+♠</td></tr>
+<tr><td>3NT</td><td>Choice of games, 5♠(332)</td></tr>
+</tbody></table>
+</div>
+<h2 id="odwrotka-with-the-strong-2-relay"><a class="header" href="#odwrotka-with-the-strong-2-relay">Odwrotka with the strong 2<span class="♥">♥</span> relay</a></h2>
+<p>We use the relay structure in <em>Polish Club 2020: Expert</em>.  The 2<span class="♥">♥</span> response to
+Odwrotka is a slam try with 11+ HCP or a certain fit and &lt;= 8.0 <abbr title="New Losing Trick Count">NLTC</abbr>.  The
+relay structure generally lets the strong opener declare notrump.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1M-2<span class="♦">♦</span>-</th><th><abbr title="forcing to game (3NT)">FG</abbr>, 3+<abbr title="major suit">M</abbr></th></tr></thead><tbody>
+<tr><td>2<span class="♥">♥</span>!</td><td><abbr title="slam try">S/T</abbr> <abbr title="relay">(R)</abbr>, 11+</td></tr>
+<tr><td>2<span class="♥">♥</span>-2♠!</td><td><abbr title="relay">(R)</abbr></td></tr>
+<tr><td>2<span class="♥">♥</span>-2NT</td><td>Probably (4333)</td></tr>
+<tr><td>2♠!</td><td><abbr title="negative">NEG</abbr>, 7–10, 4=<abbr title="major suit">M</abbr></td></tr>
+<tr><td>2♠-2NT!</td><td>Ask for a side suit, a 5-card minor or the other 4-card major</td></tr>
+<tr><td>2NT!</td><td><abbr title="minimum">MIN</abbr>, 7–10, 5=<abbr title="major suit">M</abbr>, not <abbr title="balanced">BAL</abbr></td></tr>
+<tr><td>2NT-3♣!</td><td>Ask for the side suit</td></tr>
+<tr><td>3♣</td><td>Mild <abbr title="slam try">S/T</abbr>, 9–11, 5+♣, 4=<abbr title="major suit">M</abbr></td></tr>
+<tr><td>3<span class="♦">♦</span></td><td>Mild <abbr title="slam try">S/T</abbr>, 9–11, 5+<span class="♦">♦</span>, 4=<abbr title="major suit">M</abbr></td></tr>
+<tr><td>3M!</td><td><abbr title="minimum">MIN</abbr>, 7–10, <abbr title="balanced">BAL</abbr> 5=<abbr title="major suit">M</abbr></td></tr>
+<tr><td>3oM!</td><td><abbr title="Splinter">SPL</abbr>, 7–10, 0–1#, 6+<abbr title="major suit">M</abbr></td></tr>
+<tr><td>3NT</td><td><abbr title="minimum">MIN</abbr>, 7–10, 6+<abbr title="major suit">M</abbr></td></tr>
+<tr><td>4♣!</td><td><abbr title="Splinter">SPL</abbr>, 7–10, 0–1♣, 6+<abbr title="major suit">M</abbr></td></tr>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="Splinter">SPL</abbr>, 7–10, 0–1<span class="♦">♦</span>, 6+<abbr title="major suit">M</abbr></td></tr>
+</tbody></table>
+</div>
+<p>Relay systems can be cryptic!  I am summing up why we arrange the steps in this
+way.</p>
+<ul>
+<li><strong>2<span class="♥">♥</span></strong>: The lowest step layers <strong>strong hands.</strong>  We can repeat the whole
+structure inside.  This step follows the logic of (reverse) Lebensohl.</li>
+<li><strong>2♠</strong>: The second step holds the possibility of a misfit, <strong>4 cards.</strong>  We
+need space to explore games in the other strains.</li>
+<li><strong>2NT</strong>: <strong>Unbalanced fit!</strong>  Opener never settles in 3NT.  Feel free to bid
+notrump.</li>
+<li><strong>3M</strong>: <strong>Balanced fit!</strong>  Give opener a chance to declare 3NT with a flat hand.</li>
+<li><strong>3m</strong>: Take some hands out of the nebulous 2♠.  These hands suggests a
+<strong>minor suit</strong> slam.</li>
+<li><strong>Others</strong>: These Splinter-level steps are made for <strong>big fits.</strong></li>
+</ul>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1M; 2<span class="♦">♦</span>-2<span class="♥">♥</span>; 2♠-</th><th><abbr title="relay">(R)</abbr></th></tr></thead><tbody>
+<tr><td>2NT</td><td>4=<abbr title="major suit">M</abbr></td></tr>
+<tr><td>2NT-3♣!</td><td>Ask for a side suit</td></tr>
+<tr><td>3♣</td><td>4+♣, 5=<abbr title="major suit">M</abbr></td></tr>
+<tr><td>3<span class="♦">♦</span></td><td>4+<span class="♦">♦</span>, 5=<abbr title="major suit">M</abbr></td></tr>
+<tr><td>3oM</td><td>4+#, 5=<abbr title="major suit">M</abbr></td></tr>
+<tr><td>3M!</td><td><abbr title="balanced">BAL</abbr> 5=<abbr title="major suit">M</abbr></td></tr>
+<tr><td>3NT!</td><td>6+<abbr title="major suit">M</abbr></td></tr>
+<tr><td>4♣!</td><td><abbr title="Splinter">SPL</abbr>, 0–1♣, 6+<abbr title="major suit">M</abbr></td></tr>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="Splinter">SPL</abbr>, 0–1<span class="♦">♦</span>, 6+<abbr title="major suit">M</abbr></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>1♣-1M; 2<span class="♦">♦</span>-2<span class="♥">♥</span>; 2♠-2NT; 3♣-</th><th>Ask for a side suit</th></tr></thead><tbody>
+<tr><td>3X</td><td>4+#</td></tr>
+<tr><td>3M!</td><td>4+♣</td></tr>
+<tr><td>3NT</td><td>4M(333)</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="positive-1nt-2-and-2nt"><a class="header" href="#positive-1nt-2-and-2nt">Positive 1NT, 2♠, and 2NT</a></h1>
+<p>I group these suitless positive responses together for simplicity. These
+responses deny 4-card majors and 6-card minors.  I also list 1♣-3NT here as
+reference because it takes precedence over 1♣-2NT.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-</th><th>Strength</th><th>Distribution</th></tr></thead><tbody>
+<tr><td>1NT</td><td>8–10</td><td>2–3♠, 2–3<span class="♥">♥</span>, 2–5<span class="♦">♦</span>, 2–5♣</td></tr>
+<tr><td>2♠!</td><td>10–11</td><td>0–3♠, 0–3<span class="♥">♥</span>, 2–5<span class="♦">♦</span>, 2–5♣</td></tr>
+<tr><td>2NT</td><td>12+</td><td>2–3♠, 2–3<span class="♥">♥</span>, 3–4<span class="♦">♦</span>, 3–4♣</td></tr>
+<tr><td>3NT</td><td>12–15</td><td>33(43)</td></tr>
+</tbody></table>
+</div>
+<h2 id="1C-1NT"><a class="header" href="#1C-1NT">1♣-1NT</a></h2>
+<p>I make 2♣ and 2NT weaker than in <em>Polish Club 2020: Expert</em> to be more
+descriptive and passable.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-1NT-</th><th><abbr title="balanced">BAL</abbr> 8–10</th></tr></thead><tbody>
+<tr><td>2♣</td><td><abbr title="signoff">S/O</abbr>, 12–14, 6+♣</td></tr>
+<tr><td>2<span class="♦">♦</span></td><td><abbr title="slam try">S/T</abbr>, 18+, 4+<span class="♦">♦</span></td></tr>
+<tr><td>2M</td><td><abbr title="slam try">S/T</abbr>, 18+, 5+#</td></tr>
+<tr><td>2NT</td><td><abbr title="invitational">INV</abbr>, 14–15</td></tr>
+<tr><td>3♣</td><td><abbr title="slam try">S/T</abbr>, 18+, 5+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="slam try">S/T</abbr>, 18+, 6+<span class="♦">♦</span></td></tr>
+<tr><td>3M</td><td><abbr title="slam try">S/T</abbr>, 18+, 7+#</td></tr>
+<tr><td>3NT</td><td><abbr title="signoff">S/O</abbr>, 16+</td></tr>
+<tr><td>4♣<span class="♦">♦</span></td><td><abbr title="slam try">S/T</abbr>, <abbr title="solid">SOL</abbr> 7+#</td></tr>
+</tbody></table>
+</div>
+<h2 id="1C-2S"><a class="header" href="#1C-2S">1♣-2♠!</a></h2>
+<p>I move unbalanced invitations here from 1♣-1<span class="♦">♦</span>.  Opener declares notrump anyway,
+so 1♣-2♠ need not be balanced.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-2♠-</th><th><abbr title="invitational">INV</abbr> 10–11</th></tr></thead><tbody>
+<tr><td>2NT</td><td><abbr title="signoff">S/O</abbr>, 12–13</td></tr>
+<tr><td>3♣</td><td><abbr title="signoff">S/O</abbr>, 12–13, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span>!</td><td><abbr title="slam try">S/T</abbr>, 18+, 0–4♠, 0–4<span class="♥">♥</span></td></tr>
+<tr><td>3M</td><td><abbr title="slam try">S/T</abbr>, 18+, 5+#</td></tr>
+<tr><td>3NT</td><td><abbr title="signoff">S/O</abbr></td></tr>
+<tr><td>4♣<span class="♦">♦</span><span class="♥">♥</span>♠</td><td><abbr title="slam try">S/T</abbr>, <abbr title="solid">SOL</abbr> 7+#</td></tr>
+</tbody></table>
+</div>
+<p>P-1♣-2♠ only contains unbalanced hands of both minors.  Hence, 3<span class="♦">♦</span> becomes a
+reasonable signoff.</p>
+<div class="table-wrapper"><table><thead><tr><th>P-1♣-2♠-</th><th><abbr title="invitational">INV</abbr>, 4–5<span class="♦">♦</span>, 4–5♣</th></tr></thead><tbody>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="signoff">S/O</abbr>, 12–13, 4+<span class="♦">♦</span></td></tr>
+</tbody></table>
+</div>
+<h2 id="1C-2NT"><a class="header" href="#1C-2NT">1♣-2NT</a></h2>
+<p>Moving balanced game force from 3NT to 2NT was a brilliant idea from
+<a href="https://bridgewithdan.com/wp-content/uploads/2019/07/WJ2005webpage.htm">Polish Club 2005</a>.  It is difficult to search for a major suit slam after
+1♣-3NT.  Therefore, 1♣-3NT is restricted to a flat minimum game force.</p>
+<p>I make 1♣-2NT-3NT highly descriptive here to help slam exploration.  This method
+makes 3♣<span class="♦">♦</span> inclusive like relays.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-2NT-</th><th><abbr title="balanced">BAL</abbr> <abbr title="forcing to game (3NT)">FG</abbr></th></tr></thead><tbody>
+<tr><td>3♣</td><td>5+♣</td></tr>
+<tr><td>3<span class="♦">♦</span>!</td><td>0–4♣</td></tr>
+<tr><td>3M</td><td><abbr title="slam try">S/T</abbr>, 5+#</td></tr>
+<tr><td>3NT</td><td><abbr title="slam try">S/T</abbr>, 15–17, 4414</td></tr>
+<tr><td>4♣<span class="♦">♦</span><span class="♥">♥</span>♠</td><td><abbr title="slam try">S/T</abbr>, <abbr title="solid">SOL</abbr> 7+#</td></tr>
+</tbody></table>
+</div>
+<p>P-1♣-2NT degenerates to a balanced invitation, which is in turn similar to
+unpassed 1♣-2♠.  I import continuations from 1♣-2♠ as a natural consequence.</p>
+<div class="table-wrapper"><table><thead><tr><th>P-1♣-2NT-</th><th><abbr title="balanced">BAL</abbr> <abbr title="invitational">INV</abbr></th></tr></thead><tbody>
+<tr><td>3♣</td><td><abbr title="signoff">S/O</abbr>, 12–13, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span>!</td><td><abbr title="slam try">S/T</abbr>, 18+, 0–4♠, 0–4<span class="♥">♥</span></td></tr>
+<tr><td>3M</td><td><abbr title="slam try">S/T</abbr>, 18+, 5+#</td></tr>
+<tr><td>3NT</td><td><abbr title="signoff">S/O</abbr></td></tr>
+<tr><td>4♣<span class="♦">♦</span><span class="♥">♥</span>♠</td><td><abbr title="slam try">S/T</abbr>, <abbr title="solid">SOL</abbr> 7+#</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="game-forcing-2"><a class="header" href="#game-forcing-2">Game-forcing 2♣<span class="♦">♦</span></a></h1>
+<p>The positive responses 2♣<span class="♦">♦</span> show a longest suit with 5+ cards.  They are
+game-forcing by unpassed hand like 2/1.  This method helps finding minor suit
+slams.  I spell out the minor suits because there is a subtle difference between
+them. Finding a big fit in clubs is easier because opener can have minimum long
+clubs.</p>
+<p>Opener reverses with extra values to utilize higher steps to send information.
+This avoids an awkward situation Bridge World calls “two temporizers and zero
+describers.”  Deviating from <em>Polish Club 2020: Expert</em>, I define 1♣-2♣<span class="♦">♦</span>-2<span class="♦">♦</span><span class="♥">♥</span>♠ as
+reverses.  This bidding structure separates 15–17 from 12–14 with a 4-card
+major.  I believe this treatment helps finding the best contract.  When we only
+have a game, we want to play in a major suit despite of a better minor fit.
+However, we play the best fit in a slam to maximize our chances, especially at
+IMPs.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-2♣-</th><th><abbr title="forcing to game (3NT)">FG</abbr>, 5+♣</th></tr></thead><tbody>
+<tr><td>2<span class="♦">♦</span>!</td><td><abbr title="slam try">S/T</abbr> <abbr title="relay">(R)</abbr>, 15+, 4+♣</td></tr>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="slam try">S/T</abbr>, 15+, 4+<span class="♥">♥</span></td></tr>
+<tr><td>2♠</td><td><abbr title="slam try">S/T</abbr>, 15+, 4+♠</td></tr>
+<tr><td>2NT</td><td>Nearly <abbr title="balanced">BAL</abbr>, 12–14 or 18+</td></tr>
+<tr><td>3♣</td><td><abbr title="natural">NAT</abbr>, 12–14 or 18+, 4+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="slam try">S/T</abbr>, 18+, 6+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="slam try">S/T</abbr>, 18+, 6+<span class="♥">♥</span></td></tr>
+<tr><td>3♠</td><td><abbr title="slam try">S/T</abbr>, 18+, 6+♠</td></tr>
+<tr><td>3NT</td><td><abbr title="natural">NAT</abbr>, 12–14, 3343</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>1♣-2<span class="♦">♦</span>-</th><th><abbr title="forcing to game (3NT)">FG</abbr>, 5+<span class="♦">♦</span></th></tr></thead><tbody>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="slam try">S/T</abbr>, 15+, 4+<span class="♥">♥</span></td></tr>
+<tr><td>2♠</td><td><abbr title="slam try">S/T</abbr>, 15+, 4+♠</td></tr>
+<tr><td>2NT</td><td>Nearly <abbr title="balanced">BAL</abbr>, 12–14 or 18+</td></tr>
+<tr><td>3♣</td><td><abbr title="natural">NAT</abbr>, 12–14 or 18+, 5+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="slam try">S/T</abbr>, 15+, 4+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="slam try">S/T</abbr>, 18+, 6+<span class="♥">♥</span></td></tr>
+<tr><td>3♠</td><td><abbr title="slam try">S/T</abbr>, 18+, 6+♠</td></tr>
+<tr><td>3NT!</td><td><abbr title="slam try">S/T</abbr>, 15–17, 5+♣</td></tr>
+</tbody></table>
+</div>
+<p>I make 1♣-2<span class="♦">♦</span>-3NT so because otherwise it would be hard to show these hands.
+Grouping 12–14 and 18+ together is usually OK because 18+ can explore slams
+unilaterally.</p>
+<h2 id="by-passed-hand"><a class="header" href="#by-passed-hand">By passed hand</a></h2>
+<p>P-1♣-2♣<span class="♦">♦</span> reduce to natural invitations without a 4-card major.  Opener hides
+4-card majors in this case.</p>
+<p>There is still an important difference between 2♣ and 2<span class="♦">♦</span>.  Opener can always
+sign off by passing 2♣ due to a sure 7-card club fit.  This is not the case for
+2<span class="♦">♦</span>.</p>
+<div class="table-wrapper"><table><thead><tr><th>P-1♣-2♣-</th><th><abbr title="invitational">INV</abbr>, 5+♣</th></tr></thead><tbody>
+<tr><td>2<span class="♦">♦</span></td><td><abbr title="slam try">S/T</abbr>, 4+<span class="♦">♦</span></td></tr>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="slam try">S/T</abbr>, 5+<span class="♥">♥</span></td></tr>
+<tr><td>2♠</td><td><abbr title="slam try">S/T</abbr>, 5+♠</td></tr>
+<tr><td>2NT</td><td><abbr title="balanced">BAL</abbr> <abbr title="slam try">S/T</abbr></td></tr>
+<tr><td>3♣</td><td><abbr title="slam try">S/T</abbr>, 4+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="slam try">S/T</abbr>, 6+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="slam try">S/T</abbr>, 7+<span class="♥">♥</span></td></tr>
+<tr><td>3♠</td><td><abbr title="slam try">S/T</abbr>, 7+♠</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>P-1♣-2<span class="♦">♦</span>-</th><th><abbr title="invitational">INV</abbr>, 5+<span class="♦">♦</span></th></tr></thead><tbody>
+<tr><td>2<span class="♥">♥</span></td><td><abbr title="slam try">S/T</abbr>, 5+<span class="♥">♥</span></td></tr>
+<tr><td>2♠</td><td><abbr title="slam try">S/T</abbr>, 5+♠</td></tr>
+<tr><td>2NT</td><td>To play</td></tr>
+<tr><td>3♣</td><td>To play, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="slam try">S/T</abbr>, 3+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="slam try">S/T</abbr> <abbr title="Splinter">SPL</abbr>, 0–1<span class="♥">♥</span>, 5+♣</td></tr>
+<tr><td>3♠</td><td><abbr title="slam try">S/T</abbr> <abbr title="Splinter">SPL</abbr>, 0–1♠, 5+♣</td></tr>
+<tr><td>3NT</td><td>To play</td></tr>
+<tr><td>4♣</td><td><abbr title="slam try">S/T</abbr>, <abbr title="semi-solid">S-<abbr title="solid">SOL</abbr></abbr> 6+♣</td></tr>
+<tr><td>4<span class="♦">♦</span></td><td><abbr title="slam try">S/T</abbr>, <abbr title="unbalanced">UNBAL</abbr> 4+<span class="♦">♦</span></td></tr>
+<tr><td>4<span class="♥">♥</span></td><td><abbr title="slam try">S/T</abbr>, <abbr title="solid">SOL</abbr> 7+<span class="♥">♥</span></td></tr>
+<tr><td>4♠</td><td><abbr title="slam try">S/T</abbr>, <abbr title="solid">SOL</abbr> 7+♠</td></tr>
+<tr><td>4NT</td><td><abbr title="quantitative">QUANT</abbr> <abbr title="invitational">INV</abbr> to 6NT</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="reverse-flannery-2"><a class="header" href="#reverse-flannery-2">Reverse Flannery 2<span class="♥">♥</span></a></h1>
+<p>Reverse Flannery 1♣-2<span class="♥">♥</span> shows constructive 4+<span class="♥">♥</span>, 5+♠.  This agreement makes all
+4+<span class="♥">♥</span> variants in 1♣-1♠ <abbr title="invitational">INV</abbr>+ and benefits checkback thereafter.</p>
+<div class="table-wrapper"><table><thead><tr><th>1♣-2<span class="♥">♥</span>-</th><th><abbr title="constructive">CONST</abbr>, 4+<span class="♥">♥</span>, 5+♠</th></tr></thead><tbody>
+<tr><td>P, 2♠</td><td><abbr title="signoff">S/O</abbr></td></tr>
+<tr><td>2NT!</td><td><abbr title="forcing to game (3NT)">FG</abbr> <abbr title="relay">(R)</abbr></td></tr>
+<tr><td>3♣</td><td><abbr title="signoff">S/O</abbr>, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span>!</td><td><abbr title="4th suit forcing">4SF</abbr>, ask for <span class="♦">♦</span> stopper</td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="invitational">INV</abbr>, 4+<span class="♥">♥</span></td></tr>
+<tr><td>3♠</td><td><abbr title="invitational">INV</abbr>, 3+♠</td></tr>
+<tr><td>3NT</td><td>To play</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>1♣-2<span class="♥">♥</span>-2NT-</th><th><abbr title="forcing to game (3NT)">FG</abbr> <abbr title="relay">(R)</abbr></th></tr></thead><tbody>
+<tr><td>3♣</td><td>3–4♣, 0–1<span class="♦">♦</span>, 54(xx)</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td>3–4<span class="♦">♦</span>, 0–1♣, 54(xx)</td></tr>
+<tr><td>3<span class="♥">♥</span></td><td>5+<span class="♥">♥</span></td></tr>
+<tr><td>3♠</td><td>6+♠</td></tr>
+<tr><td>3NT</td><td>5422</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="natural-1"><a class="header" href="#natural-1">Natural 1<span class="♦">♦</span></a></h1>
+<p>This opening shows 4+<span class="♦">♦</span> and usually 5+<span class="♦">♦</span>.  It gets more unbalanced as the strength
+increases.</p>
+<div class="table-wrapper"><table><thead><tr><th>Strength</th><th>Distribution</th></tr></thead><tbody>
+<tr><td>12–14</td><td>5+<span class="♦">♦</span> or 4<span class="♦">♦</span>(441)</td></tr>
+<tr><td>15–17</td><td><abbr title="unbalanced">UNBAL</abbr>, 5+<span class="♦">♦</span> or 4<span class="♦">♦</span>(441)</td></tr>
+<tr><td>18–20</td><td><abbr title="unbalanced">UNBAL</abbr>, 5+<span class="♦">♦</span>, 0–3♠, 0–3<span class="♥">♥</span></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>1<span class="♦">♦</span>-</th><th>12–20, 5+<span class="♦">♦</span> or 4<span class="♦">♦</span>(441)</th></tr></thead><tbody>
+<tr><td>1<span class="♥">♥</span></td><td><abbr title="forcing">F</abbr>, 4+<span class="♥">♥</span>, usually 6+</td></tr>
+<tr><td>1♠</td><td><abbr title="forcing">F</abbr>, 4+♠, usually 6+</td></tr>
+<tr><td>1NT</td><td><abbr title="non-forcing">NF</abbr>, 6–10, 4+♣</td></tr>
+<tr><td>2♣</td><td><abbr title="forcing to game (3NT)">FG</abbr>, 4+♣ or 4+<span class="♦">♦</span></td></tr>
+<tr><td>2<span class="♦">♦</span></td><td><abbr title="non-forcing">NF</abbr>, 6–10, 3+<span class="♦">♦</span></td></tr>
+<tr><td>2<span class="♥">♥</span>!</td><td><abbr title="pass or correct">P/C</abbr>, 7–9, 4+<span class="♥">♥</span>, 5+♠</td></tr>
+<tr><td>2♠!</td><td><abbr title="unbalanced">UNBAL</abbr> <abbr title="invitational">INV</abbr>, 4+<span class="♦">♦</span> or 6+♣</td></tr>
+<tr><td>2NT</td><td><abbr title="balanced">BAL</abbr> <abbr title="invitational">INV</abbr>, 10–11</td></tr>
+<tr><td>3♣!</td><td><abbr title="constructive">CONST</abbr>, 7–9, 4+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="preemptive">PRE</abbr>, 4–6, 4+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span>!</td><td><abbr title="forcing to game (3NT)">FG</abbr> <abbr title="Splinter">SPL</abbr>, 0–1<span class="♥">♥</span>, 0–3♠, 4+<span class="♦">♦</span></td></tr>
+<tr><td>3♠!</td><td><abbr title="forcing to game (3NT)">FG</abbr> <abbr title="Splinter">SPL</abbr>, 0–1♠, 0–3<span class="♥">♥</span>, 4+<span class="♦">♦</span></td></tr>
+<tr><td>3NT</td><td>12–15, 1–3♠, 1–3<span class="♥">♥</span></td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="ekren-2"><a class="header" href="#ekren-2">Ekren 2♣</a></h1>
+<p>Ekren is an artificial preempt showing 4+ cards in each major.  It is originally
+at 2<span class="♦">♦</span>.  <em>Polish Club 2020: Expert</em> moves it to 2♣ to replace Precision 2♣ and
+leaves space for Multi.</p>
+<div class="table-wrapper"><table><thead><tr><th>2♣-</th><th><abbr title="preemptive">PRE</abbr>, 4+♠, 4+<span class="♥">♥</span></th></tr></thead><tbody>
+<tr><td>2<span class="♦">♦</span>!</td><td><abbr title="forcing">F</abbr>, ask for the better major suit</td></tr>
+<tr><td>2NT</td><td><abbr title="natural">NAT</abbr> <abbr title="non-forcing">NF</abbr>, usually long <span class="♦">♦</span></td></tr>
+<tr><td>3♣</td><td><abbr title="natural">NAT</abbr> <abbr title="forcing">F</abbr></td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="natural">NAT</abbr> <abbr title="forcing">F</abbr></td></tr>
+<tr><td>4♣!</td><td><abbr title="strong">STR</abbr> choice of games</td></tr>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="preemptive">PRE</abbr> choice of games</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>2♣-2<span class="♦">♦</span>-</th><th>Ask for the better major</th></tr></thead><tbody>
+<tr><td>2<span class="♥">♥</span></td><td><span class="♥">♥</span> ≥ ♠</td></tr>
+<tr><td>2♠</td><td>♠ &gt; <span class="♥">♥</span></td></tr>
+<tr><td>2NT!</td><td><abbr title="artificial">ART</abbr>, 5+♠, 5+<span class="♥">♥</span></td></tr>
+<tr><td>3♣!</td><td><abbr title="maximum/maximal">MAX</abbr> <abbr title="Splinter">SPL</abbr>, 0–1♣, 5+♠, 5+<span class="♥">♥</span></td></tr>
+<tr><td>3<span class="♦">♦</span>!</td><td><abbr title="maximum/maximal">MAX</abbr> <abbr title="Splinter">SPL</abbr>, 0–1<span class="♦">♦</span>, 5+♠, 5+<span class="♥">♥</span></td></tr>
+<tr><td>3<span class="♥">♥</span></td><td>6+<span class="♥">♥</span></td></tr>
+<tr><td>3♠</td><td>6+♠</td></tr>
+</tbody></table>
+</div>
+<p>There are two kinds of choice of games:</p>
+<ul>
+<li><strong>4♣</strong> by strength</li>
+<li><strong>4<span class="♦">♦</span></strong> by distribution</li>
+</ul>
+<p>Such distinction helps judging how to react to interference.  Besides, 4♣ lets
+the strong hand declare.  On the other hand, 4<span class="♦">♦</span> closes the auction ASAP.</p>
+<div class="table-wrapper"><table><thead><tr><th>2♣-4♣-</th><th><abbr title="strong">STR</abbr> choice of games</th></tr></thead><tbody>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="transfer">TRF</abbr>, <span class="♥">♥</span> ≥ ♠</td></tr>
+<tr><td>4<span class="♥">♥</span>!</td><td><abbr title="transfer">TRF</abbr>, ♠ &gt; <span class="♥">♥</span></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>2♣-4<span class="♦">♦</span>-</th><th><abbr title="preemptive">PRE</abbr> choice of games</th></tr></thead><tbody>
+<tr><td>4M</td><td>To play</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="multi-2"><a class="header" href="#multi-2">Multi 2<span class="♦">♦</span></a></h1>
+<p>Multi 2<span class="♦">♦</span> shows a 6-card weak two of either major.</p>
+<div class="table-wrapper"><table><thead><tr><th>2<span class="♦">♦</span>-</th><th><abbr title="preemptive">PRE</abbr>, 6+<abbr title="major suit">M</abbr></th></tr></thead><tbody>
+<tr><td>2M</td><td><abbr title="pass or correct">P/C</abbr></td></tr>
+<tr><td>2NT!</td><td><abbr title="invitational">INV</abbr>+ <abbr title="relay">(R)</abbr></td></tr>
+<tr><td>3♣<span class="♦">♦</span></td><td><abbr title="natural">NAT</abbr> <abbr title="forcing">F</abbr></td></tr>
+<tr><td>3M</td><td><abbr title="pass or correct">P/C</abbr></td></tr>
+<tr><td>3NT</td><td><abbr title="signoff">S/O</abbr></td></tr>
+<tr><td>4♣!</td><td><abbr title="strong">STR</abbr> choice of games</td></tr>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="preemptive">PRE</abbr> choice of games</td></tr>
+<tr><td>4M</td><td><abbr title="signoff">S/O</abbr></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>2<span class="♦">♦</span>-2NT</th><th><abbr title="invitational">INV</abbr>+</th></tr></thead><tbody>
+<tr><td>3♣!</td><td><abbr title="maximum/maximal">MAX</abbr>, 6+<span class="♥">♥</span></td></tr>
+<tr><td>3<span class="♦">♦</span>!</td><td><abbr title="maximum/maximal">MAX</abbr>, 6+♠</td></tr>
+<tr><td>3<span class="♥">♥</span></td><td><abbr title="minimum">MIN</abbr>, 6+<span class="♥">♥</span></td></tr>
+<tr><td>3♠</td><td><abbr title="minimum">MIN</abbr>, 6+♠</td></tr>
+</tbody></table>
+</div>
+<p>There are two kinds of choice of games:</p>
+<ul>
+<li><strong>4♣</strong> by strength</li>
+<li><strong>4<span class="♦">♦</span></strong> by distribution</li>
+</ul>
+<p>Such distinction helps judging how to react to interference.  Besides, 4♣ lets
+the strong hand declare.  On the other hand, 4<span class="♦">♦</span> closes the auction ASAP.</p>
+<div class="table-wrapper"><table><thead><tr><th>2<span class="♦">♦</span>-4♣-</th><th><abbr title="strong">STR</abbr> choice of games</th></tr></thead><tbody>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="transfer">TRF</abbr>, 6+<span class="♥">♥</span></td></tr>
+<tr><td>4<span class="♥">♥</span>!</td><td><abbr title="transfer">TRF</abbr>, 6+♠</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>2<span class="♦">♦</span>-4<span class="♦">♦</span>-</th><th><abbr title="preemptive">PRE</abbr> choice of games</th></tr></thead><tbody>
+<tr><td>4M</td><td>To play, 6+#</td></tr>
+</tbody></table>
+</div>
+<h2 id="suggested-defense-multi-vs-multi"><a class="header" href="#suggested-defense-multi-vs-multi">Suggested defense: <a href="https://chrisryall.net/bridge/multi-v-multi-2d.htm">Multi vs Multi</a></a></h2>
+<p>I regard Multi vs Multi as a specialized version of Unusual vs Unusual.  X
+remains “penalizing” either suit but longer.  Cuebids are reordered and show
+unbid (minor) suits.</p>
+<div class="table-wrapper"><table><thead><tr><th>(2<span class="♦">♦</span>)-</th><th><abbr title="preemptive">PRE</abbr>, 6+<abbr title="major suit">M</abbr></th></tr></thead><tbody>
+<tr><td>X!</td><td><abbr title="optional">OPT</abbr>, 12+ and 5+<abbr title="major suit">M</abbr>, or <abbr title="balanced">BAL</abbr> 19+</td></tr>
+<tr><td>2<span class="♥">♥</span>!</td><td><abbr title="balanced">BAL</abbr>, 16–18</td></tr>
+<tr><td>2♠!</td><td><abbr title="transfer">TRF</abbr>, 14+, 5+♣</td></tr>
+<tr><td>2NT!</td><td><abbr title="transfer">TRF</abbr>, 14+, 5+<span class="♦">♦</span></td></tr>
+<tr><td>3♣</td><td><abbr title="natural">NAT</abbr>, 8–13, 6+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="natural">NAT</abbr>, 8–13, 6+<span class="♦">♦</span></td></tr>
+<tr><td>3M!</td><td><abbr title="non-forcing">NF</abbr> Michaels, 5+#, usually 5+<abbr title="minor suit">m</abbr></td></tr>
+</tbody></table>
+</div>
+<p>We frequently pass 2<span class="♦">♦</span>x with 4+ diamonds to ease slam exploration, especially
+for minor suit slams.</p>
+<div class="table-wrapper"><table><thead><tr><th>(2<span class="♦">♦</span>)-X-</th><th><abbr title="optional">OPT</abbr>, 12+ and 5+<abbr title="major suit">M</abbr>, or <abbr title="balanced">BAL</abbr> 19+</th></tr></thead><tbody>
+<tr><td>2M!</td><td><abbr title="pass or correct">P/C</abbr></td></tr>
+<tr><td>2NT!</td><td><abbr title="invitational">INV</abbr>+, <abbr title="reverse">REV</abbr> <abbr title="Lebensohl">LEB</abbr></td></tr>
+<tr><td>3♣</td><td><abbr title="preemptive">PRE</abbr>, usually 5+♣</td></tr>
+<tr><td>3<span class="♦">♦</span>!</td><td><abbr title="invitational">INV</abbr>+ <abbr title="transfer">TRF</abbr>, 5+<span class="♥">♥</span></td></tr>
+<tr><td>3<span class="♥">♥</span>!</td><td><abbr title="invitational">INV</abbr>+ <abbr title="transfer">TRF</abbr>, 5+♠</td></tr>
+<tr><td>3♠!</td><td><abbr title="forcing to game (3NT)">FG</abbr> <abbr title="transfer">TRF</abbr>, usually 6+♣</td></tr>
+<tr><td>3NT</td><td>To play</td></tr>
+<tr><td>4♣!</td><td><abbr title="strong">STR</abbr> choice of games</td></tr>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="preemptive">PRE</abbr> choice of games</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>(2<span class="♦">♦</span>)-X-2NT</th><th><abbr title="reverse">REV</abbr> <abbr title="Lebensohl">LEB</abbr></th></tr></thead><tbody>
+<tr><td>3♣!</td><td><abbr title="pass or correct">P/C</abbr>, 12–14</td></tr>
+<tr><td>3<span class="♦">♦</span>!</td><td><abbr title="slam try">S/T</abbr>, 18+</td></tr>
+<tr><td>3M</td><td><abbr title="natural">NAT</abbr>, 15–17, 5+#</td></tr>
+</tbody></table>
+</div>
+<p>When <abbr title="the opponent on your right">RHO</abbr> bids, X is penalty and usually short in the other major.  We play
+Rubinsohl here because we need to bid diamonds.  Please refrain from penalizing
+with length in both major suits.  It is usually better to make our own contract
+than setting their doubled partscore.</p>
+<div class="table-wrapper"><table><thead><tr><th>(2<span class="♦">♦</span>)-X-(2M)-</th><th><abbr title="pass or correct">P/C</abbr></th></tr></thead><tbody>
+<tr><td>X</td><td><abbr title="penalty">PEN</abbr>, good 4+# and usually short in the other major</td></tr>
+<tr><td>2♠!</td><td><abbr title="pass or correct">P/C</abbr></td></tr>
+<tr><td>2NT!</td><td><abbr title="transfer">TRF</abbr>, 5+♣</td></tr>
+<tr><td>3♣!</td><td><abbr title="transfer">TRF</abbr>, 5+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♦">♦</span>!</td><td><abbr title="transfer">TRF</abbr>, 5+oM</td></tr>
+<tr><td>3<span class="♥">♥</span>!</td><td><abbr title="pass or correct">P/C</abbr>, <abbr title="invitational">INV</abbr> in <span class="♥">♥</span>, <abbr title="invitational">INV</abbr>+ in ♠</td></tr>
+<tr><td>3♠!</td><td><abbr title="pass or correct">P/C</abbr>, <abbr title="invitational">INV</abbr> in ♠, <abbr title="forcing to game (3NT)">FG</abbr> in <span class="♥">♥</span></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>(2<span class="♦">♦</span>)-X-(3M)-</th><th><abbr title="pass or correct">P/C</abbr></th></tr></thead><tbody>
+<tr><td>X</td><td><abbr title="penalty">PEN</abbr>, usuaully short in the other major</td></tr>
+</tbody></table>
+</div>
+<p>After opener shows their major, doubler always penalizes when holding the same
+suit.  This action is mostly safe because doubler sits behind the opener.  More
+importantly, this treatment creates a negative inference that a pass implies
+holding the other major.</p>
+<ul>
+<li>(2<span class="♦">♦</span>)-X-(2♠); (3<span class="♥">♥</span>)-X = Usually hearts</li>
+<li>(2<span class="♦">♦</span>)-X-(2♠); (3<span class="♥">♥</span>)-P = Spades!</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="muiderberg-2m"><a class="header" href="#muiderberg-2m">Muiderberg 2M</a></h1>
+<p>Muiderberg shows exactly 5 cards in the bid major and a side minor suit.
+<a href="2D-Multi.html">Multi 2<span class="♦">♦</span></a> already takes care of 6+ cards.</p>
+<div class="table-wrapper"><table><thead><tr><th>2M</th><th><abbr title="preemptive">PRE</abbr>, 5+<abbr title="major suit">M</abbr>, 4+<abbr title="minor suit">m</abbr></th></tr></thead><tbody>
+<tr><td>2♠</td><td><abbr title="natural">NAT</abbr> <abbr title="non-forcing">NF</abbr></td></tr>
+<tr><td>2NT!</td><td><abbr title="invitational">INV</abbr>+, ask for the minor suit</td></tr>
+<tr><td>3♣!</td><td><abbr title="pass or correct">P/C</abbr></td></tr>
+<tr><td>3<span class="♦">♦</span>!</td><td><abbr title="invitational">INV</abbr>+, 3+<abbr title="major suit">M</abbr></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>2M-2NT</th><th><abbr title="invitational">INV</abbr>+ <abbr title="relay">(R)</abbr></th></tr></thead><tbody>
+<tr><td>3♣</td><td><abbr title="minimum">MIN</abbr>, 4+♣</td></tr>
+<tr><td>3<span class="♦">♦</span></td><td><abbr title="minimum">MIN</abbr>, 4+<span class="♦">♦</span></td></tr>
+<tr><td>3<span class="♥">♥</span>!</td><td><abbr title="maximum/maximal">MAX</abbr>, 4+♣</td></tr>
+<tr><td>3♠!</td><td><abbr title="maximum/maximal">MAX</abbr>, 4+<span class="♦">♦</span></td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="unusual-2nt-opening"><a class="header" href="#unusual-2nt-opening">Unusual 2NT opening</a></h1>
+<p>The unusual 2NT opening is a preempt with 5+<span class="♦">♦</span> and 5+♣.  Bidding all strong hands
+with 1♣ frees up 2NT as a preempt.</p>
+<p>I advise not opening 2NT for (30)55 in the first two seats.</p>
+<div class="table-wrapper"><table><thead><tr><th>2NT-</th><th><abbr title="preemptive">PRE</abbr>, 5+<span class="♦">♦</span>, 5+♣</th></tr></thead><tbody>
+<tr><td>3♣<span class="♦">♦</span></td><td><abbr title="signoff">S/O</abbr></td></tr>
+<tr><td>3<span class="♥">♥</span>!</td><td><abbr title="forcing to game (3NT)">FG</abbr> <abbr title="relay">(R)</abbr></td></tr>
+<tr><td>3♠!</td><td><abbr title="puppet (to)">PUP</abbr>, <abbr title="slam try">S/T</abbr> or <abbr title="unbalanced">UNBAL</abbr> <abbr title="invitational">INV</abbr></td></tr>
+<tr><td>3NT, 4X</td><td><abbr title="signoff">S/O</abbr></td></tr>
+<tr><td>4NT!</td><td>Equal preference between 5♣<span class="♦">♦</span></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>2NT-3<span class="♥">♥</span>-</th><th><abbr title="forcing to game (3NT)">FG</abbr> <abbr title="relay">(R)</abbr></th></tr></thead><tbody>
+<tr><td>3♠!</td><td><abbr title="Splinter">SPL</abbr>, 0–1♠</td></tr>
+<tr><td>3NT!</td><td><abbr title="Splinter">SPL</abbr>, 0–1<span class="♥">♥</span></td></tr>
+<tr><td>4♣</td><td><abbr title="maximum/maximal">MAX</abbr> 1156</td></tr>
+<tr><td>4<span class="♦">♦</span></td><td><abbr title="maximum/maximal">MAX</abbr> 1165</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>2NT-3<span class="♥">♥</span>; 4♣<span class="♦">♦</span>-</th><th><abbr title="maximum/maximal">MAX</abbr> 11(65)</th></tr></thead><tbody>
+<tr><td>4<span class="♥">♥</span>!</td><td><abbr title="Roman Keycard Blackwood">RKCB</abbr> in ♣</td></tr>
+<tr><td>4♠!</td><td><abbr title="Roman Keycard Blackwood">RKCB</abbr> in <span class="♦">♦</span></td></tr>
+<tr><td>4NT</td><td><abbr title="signoff">S/O</abbr></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>2NT-3♠; 3NT-</th><th><abbr title="relay">(R)</abbr></th></tr></thead><tbody>
+<tr><td>4♣</td><td><abbr title="invitational">INV</abbr>, 3+♣</td></tr>
+<tr><td>4<span class="♦">♦</span></td><td><abbr title="invitational">INV</abbr>, 3+<span class="♦">♦</span></td></tr>
+<tr><td>5♣!</td><td><abbr title="slam try">S/T</abbr>, 3+♣</td></tr>
+<tr><td>5<span class="♦">♦</span>!</td><td><abbr title="slam try">S/T</abbr>, 3+<span class="♦">♦</span></td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="btu-namyats"><a class="header" href="#btu-namyats"><abbr title="Bridge Taiwan University">BTU</abbr> Namyats</a></h1>
+<p><abbr title="Bridge Taiwan University">BTU</abbr> uses a 4X scheme that conveys ~0.58 more bits than traditional or Meckwell
+Namyats.</p>
+<ul>
+<li><strong>4♣</strong>: solid major suit without any outside A/K</li>
+<li><strong>4<span class="♦">♦</span></strong>: semi-solid major suit with 0–1 outside A/K</li>
+<li><strong>4M</strong>: non-solid (1.5+ <abbr title="New Losing Trick Count">NLTC</abbr>) major suit</li>
+</ul>
+<div class="table-wrapper"><table><thead><tr><th>4X-</th><th><abbr title="preemptive">PRE</abbr> in 4M</th></tr></thead><tbody>
+<tr><td>4NT!</td><td><abbr title="Roman Keycard Blackwood">RKCB</abbr></td></tr>
+<tr><td>5m!</td><td><abbr title="control">CTRL</abbr> ASK</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>4X-5m-</th><th><abbr title="control">CTRL</abbr> ASK</th></tr></thead><tbody>
+<tr><td>+1</td><td>No <abbr title="control">CTRL</abbr></td></tr>
+<tr><td>+2</td><td>K or singleton</td></tr>
+<tr><td>+3</td><td>A or void</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>4♣<span class="♦">♦</span>-</th><th>(S-)<abbr title="solid">SOL</abbr> <abbr title="preemptive">PRE</abbr> in 4M</th></tr></thead><tbody>
+<tr><td>4<span class="♦">♦</span>!</td><td><abbr title="slam try">S/T</abbr> <abbr title="relay">(R)</abbr></td></tr>
+<tr><td>4M, 5M, 6M</td><td><abbr title="pass or correct">P/C</abbr></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>4♣-4<span class="♦">♦</span>-</th><th><abbr title="slam try">S/T</abbr> <abbr title="relay">(R)</abbr></th></tr></thead><tbody>
+<tr><td>4M</td><td><abbr title="natural">NAT</abbr> <abbr title="minimum">MIN</abbr></td></tr>
+<tr><td>4NT!</td><td><abbr title="maximum/maximal">MAX</abbr>, <abbr title="control">CTRL</abbr> in every side suit</td></tr>
+<tr><td>5♣!</td><td><abbr title="maximum/maximal">MAX</abbr>, no <abbr title="control">CTRL</abbr> in ♣</td></tr>
+<tr><td>5<span class="♦">♦</span>!</td><td><abbr title="maximum/maximal">MAX</abbr>, no <abbr title="control">CTRL</abbr> in <span class="♦">♦</span></td></tr>
+<tr><td>5M!</td><td><abbr title="maximum/maximal">MAX</abbr>, no <abbr title="control">CTRL</abbr> in oM</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>4<span class="♥">♥</span>-</th><th><abbr title="preemptive">PRE</abbr>, non-<abbr title="solid">SOL</abbr></th></tr></thead><tbody>
+<tr><td>4♠</td><td><abbr title="signoff">S/O</abbr></td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
