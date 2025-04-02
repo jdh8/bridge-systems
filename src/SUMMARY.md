@@ -18,8 +18,8 @@
 # Common conventions
 
 - [Multi 2♦](2D-Multi.md)
-- [Muiderberg 2M]()
-- [Unusual 2NT opening]()
+- [Muiderberg 2M](2M-Muiderberg.md)
+- [Unusual 2NT opening](2NT-UNT.md)
 - [BTU 4-level preempts]()
 
 # Defensive bidding
