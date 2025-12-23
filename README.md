@@ -1,3 +1,3 @@
-# Legacy (1.0) Taipei Forcing Club System Notes
+# Taipei Forcing Club System Notes
 
-This repository serves version 1.0 of [Taipei Forcing Club System Notes](https://github.com/jdh8/bridge-systems)
+This repository serves my legacy system notes and links to their new mdBook versions.
